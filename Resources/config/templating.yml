@@ -1,0 +1,10 @@
+parameters:
+    ngmore.templating.converter.user.class: Netgen\Bundle\MoreLegacyBundle\Templating\Converter\UserConverter
+
+services:
+    ngmore.templating.converter.user:
+        class: %ngmore.templating.converter.user.class%
+        arguments:
+            - @ezpublish_legacy.kernel
+        tags:
+            - {name: ezpublish_legacy.templating.converter, for: eZ\Publish\Core\Repository\Values\User\User}
