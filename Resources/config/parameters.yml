@@ -1,0 +1,3 @@
+parameters:
+    ngmore.legacy_mapper.configuration.options:
+        enabled_legacy_settings: []

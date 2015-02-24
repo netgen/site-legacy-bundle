@@ -1,5 +1,6 @@
 parameters:
     ngmore.data_collector.legacy_debug_data_collector.class: Netgen\Bundle\MoreLegacyBundle\DataCollector\LegacyDebugDataCollector
+    ngmore.legacy_mapper.configuration.class: Netgen\Bundle\MoreLegacyBundle\LegacyMapper\Configuration
 
 services:
     ngmore.data_collector.legacy_debug_data_collector:
@@ -9,3 +10,13 @@ services:
             - @fos_http_cache.user_context.request_matcher
         tags:
             - { name: data_collector, template: 'NetgenMoreBundle:Profiler:LegacyDebug.html.twig', id: 'ngmore_legacy_debug' }
+
+    ngmore.legacy_mapper.configuration:
+        class: %ngmore.legacy_mapper.configuration.class%
+        arguments:
+            - @ezpublish.config.resolver.core
+            - %ngmore.legacy_mapper.configuration.options%
+        calls:
+            - [setContainer, [@service_container]]
+        tags:
+            - { name: kernel.event_subscriber }
