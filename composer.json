@@ -8,7 +8,9 @@
         }
     ],
     "require": {
-        "ezsystems/ezpublish-legacy": "*"
+        "ezsystems/ezpublish-kernel": "*",
+        "ezsystems/ezpublish-legacy": "*",
+        "netgen/more-bundle": "~2.1.0"
     },
     "autoload": {
         "psr-0": { "Netgen\\Bundle\\MoreLegacyBundle": "" }
