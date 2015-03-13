@@ -4,7 +4,7 @@ Netgen More Legacy Bundle installation instructions
 Requirements
 ------------
 
-* eZ Publish 5.4+ / eZ Publish Community Project 2014.11+
+* eZ Platform 15.01 or later
 
 Installation steps
 ------------------
@@ -39,7 +39,7 @@ public function registerBundles()
 
 ### Clear the caches
 
-Clear eZ Publish 5 caches.
+Clear eZ Publish caches.
 
 ```bash
 php ezpublish/console cache:clear
