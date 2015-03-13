@@ -8,9 +8,8 @@
         }
     ],
     "require": {
-        "ezsystems/ezpublish-kernel": "*",
-        "ezsystems/ezpublish-legacy": "*",
-        "netgen/more-bundle": "~2.1.0"
+        "ezsystems/legacy-bridge": "*",
+        "netgen/ngsymfonytools": "~1.1"
     },
     "autoload": {
         "psr-0": { "Netgen\\Bundle\\MoreLegacyBundle": "" }
