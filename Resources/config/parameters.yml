@@ -1,3 +1,16 @@
 parameters:
     ngmore.legacy_mapper.configuration.options:
         enabled_legacy_settings: []
+
+    ngmore_legacy.default.site_settings.root_node_depth: 1
+    ngmore_legacy.default.database_settings.sql_output: disabled
+    ngmore_legacy.default.content_settings.view_caching: enabled
+    ngmore_legacy.default.override_settings.cache: enabled
+    ngmore_legacy.default.template_settings.debug: disabled
+    ngmore_legacy.default.template_settings.development_mode: disabled
+    ngmore_legacy.default.template_settings.template_cache: enabled
+    ngmore_legacy.default.template_settings.template_compile: enabled
+    ngmore_legacy.default.template_settings.show_used_templates: disabled
+    ngmore_legacy.default.template_settings.show_xhtml_code: disabled
+    ngmore_legacy.default.debug_settings.debug_output: disabled
+    ngmore_legacy.default.debug_settings.debug_redirection: disabled
