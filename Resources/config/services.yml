@@ -1,21 +1,21 @@
 parameters:
-    ngmore.data_collector.legacy_debug_data_collector.class: Netgen\Bundle\MoreLegacyBundle\DataCollector\LegacyDebugDataCollector
-    ngmore.legacy_mapper.configuration.class: Netgen\Bundle\MoreLegacyBundle\LegacyMapper\Configuration
+    ngmore_legacy.data_collector.legacy_debug_data_collector.class: Netgen\Bundle\MoreLegacyBundle\DataCollector\LegacyDebugDataCollector
+    ngmore_legacy.legacy_mapper.configuration.class: Netgen\Bundle\MoreLegacyBundle\LegacyMapper\Configuration
 
 services:
-    ngmore.data_collector.legacy_debug_data_collector:
-        class: %ngmore.data_collector.legacy_debug_data_collector.class%
+    ngmore_legacy.data_collector.legacy_debug_data_collector:
+        class: %ngmore_legacy.data_collector.legacy_debug_data_collector.class%
         arguments:
             - @ezpublish_legacy.kernel
             - @fos_http_cache.user_context.request_matcher
         tags:
             - { name: data_collector, template: 'NetgenMoreLegacyBundle:Profiler:LegacyDebug.html.twig', id: 'ngmore_legacy_debug' }
 
-    ngmore.legacy_mapper.configuration:
-        class: %ngmore.legacy_mapper.configuration.class%
+    ngmore_legacy.legacy_mapper.configuration:
+        class: %ngmore_legacy.legacy_mapper.configuration.class%
         arguments:
             - @ezpublish.config.resolver.core
-            - %ngmore.legacy_mapper.configuration.options%
+            - %ngmore_legacy.legacy_mapper.configuration.options%
         calls:
             - [setContainer, [@service_container]]
         tags:
