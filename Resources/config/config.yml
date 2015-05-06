@@ -1,0 +1,6 @@
+netgen_more_legacy:
+    enabled_legacy_settings: []
+    system:
+        default:
+            injected_settings: []
+            injected_merge_settings: []

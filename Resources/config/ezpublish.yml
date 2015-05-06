@@ -1,5 +1,6 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: config.yml }
 
 ezpublish:
     locale_conversion:
