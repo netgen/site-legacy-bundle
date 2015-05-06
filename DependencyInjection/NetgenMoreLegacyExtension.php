@@ -31,16 +31,6 @@ class NetgenMoreLegacyExtension extends Extension
         $loader->load( 'services.yml' );
 
         $processor = new ConfigurationProcessor( $container, 'netgen_more_legacy' );
-        $processor->mapConfig(
-            $config,
-            function ( $scopeSettings, $currentScope, ContextualizerInterface $contextualizer )
-            {
-                foreach ( $scopeSettings as $key => $value )
-                {
-                    $contextualizer->setContextualParameter( $key, $currentScope, $value );
-                }
-            }
-        );
 
         $processor->mapConfigArray( 'injected_settings', $config, ContextualizerInterface::MERGE_FROM_SECOND_LEVEL );
         $processor->mapConfigArray( 'injected_merge_settings', $config, ContextualizerInterface::MERGE_FROM_SECOND_LEVEL );

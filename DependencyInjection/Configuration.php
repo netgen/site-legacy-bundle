@@ -41,7 +41,10 @@ class Configuration extends SiteAccessConfiguration
                 ->prototype( 'array' )
                     ->requiresAtLeastOneElement()
                     ->normalizeKeys( false )
-                        ->prototype( 'variable' )
+                        ->prototype( 'array' )
+                            ->requiresAtLeastOneElement()
+                            ->prototype( 'scalar' )
+                            ->end()
                         ->end()
                 ->end()
             ->end();
