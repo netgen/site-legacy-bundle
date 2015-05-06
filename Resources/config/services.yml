@@ -15,7 +15,7 @@ services:
         class: %ngmore_legacy.legacy_mapper.configuration.class%
         arguments:
             - @ezpublish.config.resolver.core
-            - %ngmore_legacy.legacy_mapper.configuration.options%
+            - %ngmore_legacy.legacy_mapper.enabled_legacy_settings%
         calls:
             - [setContainer, [@service_container]]
         tags:

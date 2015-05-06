@@ -18,12 +18,12 @@ class Configuration extends ContainerAware implements EventSubscriberInterface
     /**
      * @var array
      */
-    protected $options;
+    protected $enabledLegacySettings;
 
-    public function __construct( ConfigResolverInterface $configResolver, array $options = array() )
+    public function __construct( ConfigResolverInterface $configResolver, array $enabledLegacySettings )
     {
         $this->configResolver = $configResolver;
-        $this->options = $options;
+        $this->enabledLegacySettings = $enabledLegacySettings;
     }
 
     /**
@@ -45,66 +45,52 @@ class Configuration extends ContainerAware implements EventSubscriberInterface
      */
     public function onBuildKernel( PreBuildKernelEvent $event )
     {
-        $injectedSettings = array();
-        $injectedMergeSettings = array();
+        $injectedSettings = $this->configResolver->getParameter( 'injected_settings', 'netgen_more_legacy' );
+        $injectedMergeSettings = $this->configResolver->getParameter( 'injected_merge_settings', 'netgen_more_legacy' );
 
-        $enabledLegacySettings = isset( $this->options['enabled_legacy_settings'] ) &&
-            is_array( $this->options['enabled_legacy_settings'] ) ?
-                $this->options['enabled_legacy_settings'] :
-                array();
+        $formattedInjectedSettings = array();
+        $formattedInjectedMergeSettings = array();
 
-        $replaceArrayValues = isset( $this->options['replace_array_values'] ) &&
-            is_array( $this->options['replace_array_values'] ) ?
-                $this->options['replace_array_values'] :
-                array();
-
-        foreach ( $enabledLegacySettings as $legacyIniName )
+        foreach ( $this->enabledLegacySettings as $legacyIniName )
         {
-            if ( !$this->configResolver->hasParameter( $legacyIniName, 'ngmore_legacy' ) )
+            if ( !empty( $injectedSettings[$legacyIniName] ) && is_array( $injectedSettings[$legacyIniName] ) )
             {
-                continue;
-            }
-
-            $legacyIni = $this->configResolver->getParameter( $legacyIniName, 'ngmore_legacy' );
-            if ( !is_array( $legacyIni ) )
-            {
-                continue;
-            }
-
-            foreach ( $legacyIni as $legacyIniSection => $legacyIniConfig )
-            {
-                if ( !is_string( $legacyIniSection ) || !is_array( $legacyIniConfig ) )
-                {
-                    continue;
-                }
-
-                foreach ( $legacyIniConfig as $legacyIniValueName => $legacyIniValue )
+                foreach ( $injectedSettings[$legacyIniName] as $legacyIniValueName => $legacyIniValue )
                 {
                     if ( !is_string( $legacyIniValueName ) )
                     {
                         continue;
                     }
 
-                    if ( is_array( $legacyIniValue ) && empty( $replaceArrayValues[$legacyIniName][$legacyIniSection][$legacyIniValueName] ) )
+                    // We need to manipulate the array config to conform to the format eZINI expects
+                    if ( is_array( $legacyIniValue ) )
                     {
-                        $injectedMergeSettings[$legacyIniName . '.ini/' . $legacyIniSection . '/' . $legacyIniValueName] = $legacyIniValue;
-                    }
-                    else
-                    {
-                        // We need to manipulate the array config to conform to the format eZINI expects
-                        if ( is_array( $legacyIniValue ) )
+                        if ( isset( $legacyIniValue[0] ) )
                         {
-                            if ( isset( $legacyIniValue[0] ) )
-                            {
-                                $legacyIniValue = array( '' ) + array_combine( range( 1, count( $legacyIniValue ) ), $legacyIniValue );
-                            }
-                            else
-                            {
-                                $legacyIniValue = array( '' ) + $legacyIniValue;
-                            }
+                            $legacyIniValue = array( '' ) + array_combine( range( 1, count( $legacyIniValue ) ), $legacyIniValue );
                         }
+                        else
+                        {
+                            $legacyIniValue = array( '' ) + $legacyIniValue;
+                        }
+                    }
 
-                        $injectedSettings[$legacyIniName . '.ini/' . $legacyIniSection . '/' . $legacyIniValueName] = $legacyIniValue;
+                    $formattedInjectedSettings[$legacyIniName . '/' . $legacyIniValueName] = $legacyIniValue;
+                }
+            }
+
+            if ( !empty( $injectedMergeSettings[$legacyIniName] ) && is_array( $injectedMergeSettings[$legacyIniName] ) )
+            {
+                foreach ( $injectedMergeSettings[$legacyIniName] as $legacyIniValueName => $legacyIniValue )
+                {
+                    if ( !is_string( $legacyIniValueName ) )
+                    {
+                        continue;
+                    }
+
+                    if ( is_array( $legacyIniValue ) )
+                    {
+                        $formattedInjectedMergeSettings[$legacyIniName . '/' . $legacyIniValueName] = $legacyIniValue;
                     }
                 }
             }
@@ -112,12 +98,12 @@ class Configuration extends ContainerAware implements EventSubscriberInterface
 
         $event->getParameters()->set(
             'injected-settings',
-            $injectedSettings + (array)$event->getParameters()->get( 'injected-settings' )
+            $formattedInjectedSettings + (array)$event->getParameters()->get( 'injected-settings' )
         );
 
         $event->getParameters()->set(
             'injected-merge-settings',
-            $injectedMergeSettings + (array)$event->getParameters()->get( 'injected-merge-settings' )
+            $formattedInjectedMergeSettings + (array)$event->getParameters()->get( 'injected-merge-settings' )
         );
     }
 }

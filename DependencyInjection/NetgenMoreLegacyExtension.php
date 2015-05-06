@@ -6,6 +6,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
+use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ConfigurationProcessor;
+use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ContextualizerInterface;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -24,9 +26,26 @@ class NetgenMoreLegacyExtension extends Extension
 
         $loader = new Loader\YamlFileLoader( $container, new FileLocator( __DIR__ . '/../Resources/config' ) );
 
-        $loader->load( 'parameters.yml' );
+        // $loader->load( 'parameters.yml' );
         $loader->load( 'field_types.yml' );
         $loader->load( 'templating.yml' );
         $loader->load( 'services.yml' );
+
+        $processor = new ConfigurationProcessor( $container, 'netgen_more_legacy' );
+        $processor->mapConfig(
+            $config,
+            function ( $scopeSettings, $currentScope, ContextualizerInterface $contextualizer )
+            {
+                foreach ( $scopeSettings as $key => $value )
+                {
+                    $contextualizer->setContextualParameter( $key, $currentScope, $value );
+                }
+            }
+        );
+
+        $processor->mapConfigArray( 'injected_settings', $config, ContextualizerInterface::MERGE_FROM_SECOND_LEVEL );
+        $processor->mapConfigArray( 'injected_merge_settings', $config, ContextualizerInterface::MERGE_FROM_SECOND_LEVEL );
+
+        $container->setParameter( 'ngmore_legacy.legacy_mapper.enabled_legacy_settings', $config['enabled_legacy_settings'] );
     }
 }

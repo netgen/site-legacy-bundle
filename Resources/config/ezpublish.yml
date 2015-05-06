@@ -1,3 +1,7 @@
+imports:
+    - { resource: config.yml }
+    - { resource: parameters.yml }
+
 ezpublish:
     locale_conversion:
         eng-EU: en
