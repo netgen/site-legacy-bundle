@@ -1,7 +1,7 @@
 parameters:
     ngmore_legacy.field_type.childrenindexer.class: %ezpublish.fieldType.eznull.class%
     ngmore_legacy.field_type.childrenindexer.converter.class: %ezpublish.fieldType.eznull.converter.class%
-    ngmore_legacy.field_type.childrenindexer.indexable.class: %ezpublish.fieldType.indexable.unindexed.class%
+    ngmore_legacy.field_type.childrenindexer.indexable.class: eZ\Publish\Core\FieldType\Unindexed
 
 services:
     ngmore_legacy.field_type.childrenindexer:
