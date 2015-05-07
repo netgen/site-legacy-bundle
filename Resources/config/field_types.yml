@@ -1,6 +1,7 @@
 parameters:
     ngmore_legacy.field_type.childrenindexer.class: %ezpublish.fieldType.eznull.class%
     ngmore_legacy.field_type.childrenindexer.converter.class: %ezpublish.fieldType.eznull.converter.class%
+    ngmore_legacy.field_type.childrenindexer.indexable.class: %ezpublish.fieldType.indexable.unindexed.class%
 
 services:
     ngmore_legacy.field_type.childrenindexer:
@@ -14,3 +15,8 @@ services:
         class: %ngmore_legacy.field_type.childrenindexer.converter.class%
         tags:
             - {name: ezpublish.storageEngine.legacy.converter, alias: childrenindexer, lazy: true, callback: '::create'}
+
+    ngmore_legacy.field_type.childrenindexer.indexable:
+        class: %ngmore_legacy.field_type.childrenindexer.indexable.class%
+        tags:
+            - {name: ezpublish.fieldType.indexable, alias: childrenindexer}
