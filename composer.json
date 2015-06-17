@@ -7,6 +7,9 @@
             "homepage": "http://www.netgenlabs.com"
         }
     ],
+    "require": {
+        "netgen/ngsymfonytools": "~1.1"
+    },
     "autoload": {
         "psr-0": { "Netgen\\Bundle\\MoreLegacyBundle": "" }
     },
