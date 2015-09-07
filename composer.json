@@ -9,7 +9,8 @@
     ],
     "require": {
         "ezsystems/legacy-bridge": "*",
-        "netgen/ngsymfonytools": "~1.1"
+        "netgen/ngsymfonytools": "~1.1",
+        "netgen/ezplatformsearch": "~1.0"
     },
     "autoload": {
         "psr-0": { "Netgen\\Bundle\\MoreLegacyBundle": "" }
