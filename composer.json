@@ -10,7 +10,16 @@
     "require": {
         "ezsystems/legacy-bridge": "*",
         "netgen/ngsymfonytools": "~1.1",
-        "netgen/ezplatformsearch": "~1.0"
+        "netgen/ezplatformsearch": "~1.0",
+
+        "netgen/bccie": "~1.0",
+        "netgen/childrenindexer": "~1.0",
+        "netgen/parentindexer": "~1.0",
+        "netgen/hideuntildate": "~1.0",
+        "netgen/ezclasslists": "~1.2",
+        "netgen/ezchangeclass": "~1.0",
+        "netgen/ngresponsiveimages": "~2.1",
+        "netgen/xrowmetadata": "~2.1"
     },
     "autoload": {
         "psr-0": { "Netgen\\Bundle\\MoreLegacyBundle": "" }
