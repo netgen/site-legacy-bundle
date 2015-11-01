@@ -4,7 +4,7 @@ Netgen More Legacy Bundle installation instructions
 Requirements
 ------------
 
-* eZ Platform 15.01 alpha or later
+* eZ Platform 1.0+
 
 Installation steps
 ------------------
