@@ -24,7 +24,7 @@ Add the following to your composer.json and run `php composer.phar update netgen
 
 ### Activate the bundle
 
-Activate the bundle in `ezpublish\EzPublishKernel.php` file.
+Activate the bundle in `app/AppKernel.php` file.
 
 ```php
 public function registerBundles()
@@ -42,5 +42,5 @@ public function registerBundles()
 Clear eZ Publish caches.
 
 ```bash
-php ezpublish/console cache:clear
+php app/console cache:clear
 ```
