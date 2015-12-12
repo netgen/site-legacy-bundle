@@ -16,3 +16,6 @@ parameters:
 
     ngmore_legacy.default.debug_settings.debug_output: disabled
     ngmore_legacy.default.debug_settings.debug_redirection: disabled
+
+    # Controls handling legacy stack fallback error responses through Symfony exceptions (401, 403, 404...)
+    ngmore.default.content_view.handle_legacy_fallback_error_result: true
