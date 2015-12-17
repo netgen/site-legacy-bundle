@@ -13,6 +13,7 @@
         "netgen/ngsymfonytools": "~1.1",
         "netgen/ezplatformsearch": "~1.0",
         "netgen/enhancedselection2": "~2.0",
+        "netgen/ngclasslist": "~1.0",
 
         "netgen/bccie": "~1.0",
         "netgen/childrenindexer": "~1.0",
