@@ -24,7 +24,6 @@
         "netgen/hideuntildate": "~1.0",
         "netgen/ezclasslists": "~1.2",
         "netgen/ezchangeclass": "~1.0",
-        "netgen/ngresponsiveimages": "~2.1",
         "netgen/xrowmetadata": "~2.1"
     },
     "autoload": {
