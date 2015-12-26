@@ -4,7 +4,6 @@ namespace Netgen\Bundle\MoreLegacyBundle\Composer;
 
 use Sensio\Bundle\DistributionBundle\Composer\ScriptHandler as DistributionBundleScriptHandler;
 use Composer\Script\CommandEvent;
-use Symfony\Component\Process\ProcessBuilder;
 
 class ScriptHandler extends DistributionBundleScriptHandler
 {
