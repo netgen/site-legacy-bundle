@@ -57,15 +57,6 @@ class Configuration implements EventSubscriberInterface
                         continue;
                     }
 
-                    // We need to manipulate the array config to conform to the format eZINI expects
-                    if (is_array($legacyIniValue)) {
-                        if (isset($legacyIniValue[0])) {
-                            $legacyIniValue = array('') + array_combine(range(1, count($legacyIniValue)), $legacyIniValue);
-                        } else {
-                            $legacyIniValue = array('') + $legacyIniValue;
-                        }
-                    }
-
                     $formattedInjectedSettings[$legacyIniName . '/' . $legacyIniValueName] = $legacyIniValue;
                 }
             }
