@@ -4,7 +4,7 @@ parameters:
 
 services:
     ngmore_legacy.data_collector.legacy_debug_data_collector:
-        class: %ngmore_legacy.data_collector.legacy_debug_data_collector.class%
+        class: "%ngmore_legacy.data_collector.legacy_debug_data_collector.class%"
         arguments:
             - "@ezpublish_legacy.kernel"
             - "@fos_http_cache.user_context.request_matcher"
@@ -12,9 +12,9 @@ services:
             - { name: data_collector, template: 'NetgenMoreLegacyBundle:profiler:legacy_debug.html.twig', id: 'ngmore_legacy_debug' }
 
     ngmore_legacy.legacy_mapper.configuration:
-        class: %ngmore_legacy.legacy_mapper.configuration.class%
+        class: "%ngmore_legacy.legacy_mapper.configuration.class%"
         arguments:
             - "@ezpublish.config.resolver.core"
-            - %ngmore_legacy.legacy_mapper.enabled_legacy_settings%
+            - "%ngmore_legacy.legacy_mapper.enabled_legacy_settings%"
         tags:
             - { name: kernel.event_subscriber }

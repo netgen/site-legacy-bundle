@@ -3,7 +3,7 @@ parameters:
 
 services:
     ngmore_legacy.templating.converter.user:
-        class: %ngmore_legacy.templating.converter.user.class%
+        class: "%ngmore_legacy.templating.converter.user.class%"
         arguments:
             - "@ezpublish_legacy.kernel"
         tags:
