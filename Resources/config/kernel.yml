@@ -1,6 +1,2 @@
 parameters:
     ezpublish_legacy.configuration_mapper.class: Netgen\Bundle\MoreLegacyBundle\LegacyMapper\LegacyConfiguration
-
-    # Override to throw Symfony's NotFoundHttpException on 404 response from Legacy Stack
-    # See https://netgen.atlassian.net/browse/NGMOREPL-85
-    ezpublish_legacy.response_manager.class: Netgen\Bundle\MoreLegacyBundle\LegacyResponse\LegacyResponseManager

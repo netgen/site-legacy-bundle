@@ -1,6 +1,7 @@
 parameters:
     ngmore_legacy.data_collector.legacy_debug_data_collector.class: Netgen\Bundle\MoreLegacyBundle\DataCollector\LegacyDebugDataCollector
     ngmore_legacy.legacy_mapper.configuration.class: Netgen\Bundle\MoreLegacyBundle\LegacyMapper\Configuration
+    ngmore_legacy.event_listener.legacy_response.class: Netgen\Bundle\MoreLegacyBundle\EventListener\LegacyResponseListener
 
 services:
     ngmore_legacy.data_collector.legacy_debug_data_collector:
@@ -16,5 +17,12 @@ services:
         arguments:
             - "@ezpublish.config.resolver.core"
             - "%ngmore_legacy.legacy_mapper.enabled_legacy_settings%"
+        tags:
+            - { name: kernel.event_subscriber }
+
+    ngmore_legacy.event_listener.legacy_response:
+        class: "%ngmore_legacy.event_listener.legacy_response.class%"
+        arguments:
+            - "$legacy_mode$"
         tags:
             - { name: kernel.event_subscriber }
