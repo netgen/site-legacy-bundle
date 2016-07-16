@@ -27,6 +27,9 @@
         "netgen/ezchangeclass": "~1.0",
         "netgen/xrowmetadata": "~2.1"
     },
+    "conflict": {
+        "netgen/more-admin-ui-bundle": "*"
+    },
     "autoload": {
         "psr-4": { "Netgen\\Bundle\\MoreLegacyBundle\\": "" }
     }
