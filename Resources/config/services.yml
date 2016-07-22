@@ -3,6 +3,8 @@ parameters:
     ngmore_legacy.legacy_mapper.configuration.class: Netgen\Bundle\MoreLegacyBundle\LegacyMapper\Configuration
     ngmore_legacy.event_listener.legacy_response.class: Netgen\Bundle\MoreLegacyBundle\EventListener\LegacyResponseListener
 
+    ngmore_legacy.slot.legacy_create_user.class: Netgen\Bundle\MoreLegacyBundle\Core\Slot\LegacyCreateUserSlot
+
 services:
     ngmore_legacy.data_collector.legacy_debug_data_collector:
         class: "%ngmore_legacy.data_collector.legacy_debug_data_collector.class%"
@@ -26,3 +28,9 @@ services:
             - "$legacy_mode$"
         tags:
             - { name: kernel.event_subscriber }
+
+    ngmore_legacy.slot.legacy_create_user:
+        class: "%ngmore_legacy.slot.legacy_create_user.class%"
+        parent: ezpublish_legacy.signalslot.base
+        tags:
+            - { name: ezpublish.api.slot, signal: UserService\CreateUserSignal }
