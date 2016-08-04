@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "netgen/more-bundle": "~2.2.0",
+        "netgen/more-bundle": "~3.0.0",
         "ezsystems/legacy-bridge": "~1.0.4",
         "netgen/richtext-datatype-bundle": "~1.0.0",
         "ezsystems/eztags-ls": "~2.1",
@@ -18,7 +18,7 @@
         "netgen/ngclasslist": "~1.0",
         "netgen/birthday": "~1.0",
 
-        "netgen/ngmore": "~2.1",
+        "netgen/ngmore": "~3.0",
         "netgen/bccie": "~1.0",
         "netgen/childrenindexer": "~1.0",
         "netgen/parentindexer": "~1.0",
@@ -32,5 +32,10 @@
     },
     "autoload": {
         "psr-4": { "Netgen\\Bundle\\MoreLegacyBundle\\": "" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.0.x-dev"
+        }
     }
 }
