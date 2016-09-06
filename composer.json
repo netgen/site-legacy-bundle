@@ -11,7 +11,6 @@
         "netgen/more-bundle": "~2.2.0",
         "ezsystems/legacy-bridge": "~1.0.3",
         "ezsystems/eztags-ls": "~2.1",
-        "ezsystems/ezfind-ls": "*",
         "netgen/ngsymfonytools": "~1.1",
         "netgen/ezplatformsearch": "~1.0",
         "netgen/enhancedselection2": "~2.0",
