@@ -1,19 +1,10 @@
 parameters:
-    ngmore_legacy.data_collector.legacy_debug_data_collector.class: Netgen\Bundle\MoreLegacyBundle\DataCollector\LegacyDebugDataCollector
     ngmore_legacy.legacy_mapper.configuration.class: Netgen\Bundle\MoreLegacyBundle\LegacyMapper\Configuration
     ngmore_legacy.event_listener.legacy_response.class: Netgen\Bundle\MoreLegacyBundle\EventListener\LegacyResponseListener
 
     ngmore_legacy.slot.legacy_create_user.class: Netgen\Bundle\MoreLegacyBundle\Core\Slot\LegacyCreateUserSlot
 
 services:
-    ngmore_legacy.data_collector.legacy_debug_data_collector:
-        class: "%ngmore_legacy.data_collector.legacy_debug_data_collector.class%"
-        arguments:
-            - "@ezpublish_legacy.kernel"
-            - "@fos_http_cache.user_context.request_matcher"
-        tags:
-            - { name: data_collector, template: 'NetgenMoreLegacyBundle:profiler:legacy_debug.html.twig', id: 'ngmore_legacy_debug' }
-
     ngmore_legacy.legacy_mapper.configuration:
         class: "%ngmore_legacy.legacy_mapper.configuration.class%"
         arguments:
