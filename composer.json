@@ -18,7 +18,6 @@
         "netgen/ngclasslist": "~1.0",
         "netgen/birthday": "~1.0",
 
-        "netgen/ngmore": "~3.0",
         "netgen/bccie": "~1.0",
         "netgen/childrenindexer": "~1.0",
         "netgen/parentindexer": "~1.0",

@@ -1,0 +1,6 @@
+table#embed_attributes tr#embed_inline,
+table#embed_attributes tr#embed_view,
+table#embed_attributes tr#embed_size
+{
+    display: none;
+}

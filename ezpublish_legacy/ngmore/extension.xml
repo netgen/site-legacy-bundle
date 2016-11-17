@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<software>
+    <dependencies>
+        <requires>
+            <extension name="xrowmetadata" />
+        </requires>
+        <extends>
+            <extension name="ezmultiupload" />
+            <extension name="ezjscore" />
+        </extends>
+    </dependencies>
+</software>

@@ -1,0 +1,347 @@
+
+
+/* ezpage */
+
+div#page-datatype-container{
+    /* border-left: 1px solid #CACACA; */
+    background-color: #F8F8F8;
+    padding: 1em;
+}
+
+div.zones {
+    margin-bottom: 2em;
+}
+
+div.zones .zone-label{
+    font-weight: bold;
+}
+
+div.zones #set-zone-layout{
+    float: right;
+}
+
+.yui-skin-ezflow .yui-navset .yui-nav .selected a em {
+    border-color: #999;
+    background-color: #999;
+}
+
+.yui-skin-ezflow .yui-navset .yui-content{
+    border-color: #999;
+}
+
+table.items{
+    width: 100%; white-space: nowrap; table-layout: fixed;
+}
+
+table.items td.handler {text-overflow: ellipsis; overflow: hidden; }
+
+table.items td.classname{
+    width:15%; text-overflow:ellipsis; white-space: nowrap; overflow: hidden;
+}
+
+table.items td.location{
+    width:20%; text-overflow:ellipsis; white-space: nowrap; overflow: hidden;
+}
+
+table.items td.nodelink{
+    width:10%; text-overflow:ellipsis; white-space: nowrap; overflow: hidden;
+}
+
+table.items th.tight, table.items td.tight {
+    width: 18px;
+}
+
+div.block-container {
+    margin:1em 0;
+    background-color: #fff;
+}
+
+div.block-content{
+    padding: 1em !important;
+}
+
+div.block-header {
+    background-color: #cfcfcf !important;
+}
+
+.block-controls{
+    margin: 0 0 1em 0;
+    text-align: right;
+}
+
+.block-controls label{
+    font-weight: normal;
+}
+
+.block-controls .left{
+    text-align: left;
+}
+
+.block-name{
+    margin:1em 0;
+    padding:1em 0 0 0;
+    border-top:1px solid #ececec;
+    border-bottom:1px solid #ececec;
+    background-color: #f4f4f4
+}
+
+.block-content .group{
+    margin-bottom:1em;
+}
+
+.block-parameters .group{
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ececec;
+}
+
+.block-parameters .group.advanced{
+    display: none;
+}
+
+.block-content .group label {
+    float:left; clear:left;  width: 20%; display: block;white-space: normal; padding-top: 0.5em; padding-left: 1em;
+}
+
+.block-content .group .controls {
+    margin-left: 30%; display: block;
+}
+
+.block-content .group input.textfield{
+    width: 90%
+}
+
+.block-parameters .block-add-item {
+    margin-top:1em; padding-top: 1em;
+}
+
+
+.yui-skin-sam .yui-navset .yui-content, .yui-skin-sam .yui-navset .yui-navset-top .yui-content {
+    padding: 0em !important;
+    border:0 !important;
+    padding-top: 0.5em !important;
+
+}
+
+.yui-skin-ezflow .yui-navset .yui-content {
+    background-color: #fff !important;
+    padding: 0.5em 1em !important;
+}
+
+/* Fixes controlbar floating */
+
+#controlbar-top.controlbar-fixed{
+    z-index: 1000;
+}
+
+#controlbar-top .box-bc {
+    background: #f2f2f2;
+    border-radius: 0;
+    border-color: #aaa;
+    border-bottom-color: #999;
+    box-shadow: none;
+    border: none;
+}
+
+#controlbar-top.controlbar-fixed .box-bc {
+    box-shadow: 0 6px 5px rgba(0,0,40,0.3);
+    border-bottom: 1px solid #888;
+}
+
+
+/* Generic fixes */
+
+body{
+    font-family: sans-serif;
+}
+
+#maincontent {
+    padding: 0 3em 1em 3em;
+}
+
+#maincolumn {
+    border-right: 1px #fff solid;
+}
+
+label.message-error, legend.message-error {
+    color: #C11B17;
+}
+
+p.versions{
+    background: transparent;
+    border: none;
+    margin: 0.5em 0 0.5em 0;
+}
+
+input[type="text"], input[type="password"] {
+    background-color: #ffffff;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555555;
+    vertical-align: middle;
+}
+
+input[type="text"].box{
+    width: 98%;
+}
+
+input.button, button, input.defaultbutton, input.button-disabled {
+    font-family: "Lucida Grande","Helvetica Neue",helvetica,arial,sans-serif;
+    padding: 0.3em 1em;
+    border:1px solid #bbb;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    background: #fff;
+    box-shadow: 0px 2px 0px #eee;
+    -webkit-box-shadow: 0px 2px 0px #eee;
+    -moz-box-shadow: 0px 2px 0px #eee;
+}
+
+input.defaultbutton{
+    border:1px solid #e99a21;
+    background: #e99a21;
+    box-shadow: 0px 2px 0px #c97d10;
+    -webkit-box-shadow: 0px 2px 0px #c97d10;
+    -moz-box-shadow: 0px 2px 0px #c97d10;
+}
+
+input.button{
+    background: #5d7db1;
+    border:1px solid #5d7db1;
+    box-shadow: 0px 2px 0px #445c89;
+    -webkit-box-shadow: 0px 2px 0px #445c89;
+    -moz-box-shadow: 0px 2px 0px #445c89;
+    color: #fff;
+}
+
+input.button-disabled{
+    background: #f5f5f5;
+    border:1px solid #f5f5f5;
+    box-shadow: 0px 2px 0px #eee;
+    -webkit-box-shadow: 0px 2px 0px #eee;
+    -moz-box-shadow: 0px 2px 0px #eee;
+    color: #999;
+}
+
+span.yui-button, span.yui-button:hover {
+    border: none;
+    background: transparent;
+}
+
+span.yui-button button{
+    border: 1px solid #bbb;
+    padding: 0.35em 0.9em;
+    color: #000;
+}
+
+
+.yui-pg-first, .yui-pg-previous, .yui-pg-next, .yui-pg-last {
+    background: #ffffff;
+    font-family: "Lucida Grande","Helvetica Neue",helvetica,arial,sans-serif;
+    padding: 0.3em 0.5em;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+.context-information, .subitems-controlbar {
+    background: none;
+    border:none;
+}
+
+table.list tr.bglight:hover, table.list tr.bgdark:hover {
+    background-color: #transparent;
+}
+
+table.list tr.bgdark, table.list tr.bgdark th {
+    background-color: #fff;
+}
+
+/* Edit Forms */
+
+div.context-information, span.classattribute-description {
+    padding: 0.5em 0;
+}
+
+#editform #leftmenu, #leftmenu a.show-hide-control {
+    border: 0;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+
+.content-edit label{
+    padding-bottom:0.5em;
+}
+
+.content-edit fieldset{
+    border-left: 0px;
+    border-right: 0px;
+    padding: 1em 0;
+    background-color: #fff;
+}
+
+
+.content-edit fieldset.ezcca-collapsible {
+    margin-bottom:1em;
+}
+
+.content-edit fieldset.ezcca-collapsible.ezcca-collapsed {
+    margin-bottom:0em;
+}
+
+.content-edit fieldset.attribute-fieldset{
+    border: 0;
+    padding: 0;
+    display: block;
+}
+
+.content-edit fieldset.attribute-fieldset legend, #editform label.attribute-label{
+    padding: 0.5em 0;
+    border: 0;
+    width: 13em;
+    float: left;
+    display: block;
+    white-space: normal;
+    text-align: right;
+}
+
+.content-edit .attribute-block{
+    margin-left: 15em;
+}
+
+.content-edit fieldset.attribute-fieldset .attribute-block{
+    background-color: #F8F8F8;
+    padding: 1em;
+}
+
+.content-edit fieldset.attribute-fieldset span.classattribute-name{
+    display: block;
+    padding:0;
+}
+
+.content-edit span.classattribute-description{
+    display: block;
+    padding:0.5em 0;
+}
+
+.content-edit .context-attributes > div.block {
+    padding-bottom: 2.5em;
+}
+.content-edit .context-attributes > div.ezcca-edit-datatype-ezxmltext{
+    padding-bottom: 1em;
+}
+
+/* Fix floating issues */
+
+.attribute-block > div.oe-window, .attribute-block > div.block {
+    clear: none;
+}
+
+/* /Edit Forms */
