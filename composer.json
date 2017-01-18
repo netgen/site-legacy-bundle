@@ -9,7 +9,7 @@
     ],
     "require": {
         "netgen/more-bundle": "~3.0.0",
-        "ezsystems/legacy-bridge": "~1.0.4",
+        "ezsystems/legacy-bridge": "^1.0.4",
         "netgen/richtext-datatype-bundle": "~1.0.0",
         "ezsystems/eztags-ls": "~2.1",
         "netgen/ngsymfonytools": "~1.1",
