@@ -30,6 +30,7 @@ class NetgenMoreLegacyExtension extends Extension
         $loader->load('templating.yml');
         $loader->load('services.yml');
         $loader->load('kernel.yml');
+        $loader->load('view.yml');
 
         $processor = new ConfigurationProcessor($container, 'netgen_more_legacy');
 

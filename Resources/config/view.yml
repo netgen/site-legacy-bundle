@@ -1,0 +1,16 @@
+services:
+    netgen.ezplatform_site.content_view_provider.legacy:
+        class: "%ezpublish_legacy.content_view_provider.class%"
+        parent: ezpublish_legacy.view_provider
+        tags:
+            - {name: ezpublish.view_provider, type: 'Netgen\Bundle\EzPlatformSiteApiBundle\View\ContentView', priority: -205}
+
+    netgen.ezplatform_site.location_view_provider.legacy:
+        class: "%ezpublish_legacy.location_view_provider.class%"
+        parent: ezpublish_legacy.view_provider
+        calls:
+            - [setRequestStack, ["@request_stack"]]
+        tags:
+            # Location view provider must have priority higher than content view provider to be able
+            # to match the location first, in case it exists in the view
+            - {name: ezpublish.view_provider, type: 'Netgen\Bundle\EzPlatformSiteApiBundle\View\ContentView', priority: -200}
