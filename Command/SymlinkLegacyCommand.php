@@ -7,7 +7,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Netgen\Bundle\MoreBundle\NetgenMoreProjectBundleInterface;
 use Netgen\Bundle\MoreBundle\Command\SymlinkCommand;
-use Symfony\Component\Filesystem\Filesystem;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use DirectoryIterator;
