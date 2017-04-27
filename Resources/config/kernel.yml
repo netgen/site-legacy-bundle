@@ -1,2 +1,0 @@
-parameters:
-    ezpublish_legacy.configuration_mapper.class: Netgen\Bundle\MoreLegacyBundle\LegacyMapper\LegacyConfiguration
