@@ -1,12 +1,12 @@
 services:
     netgen.ezplatform_site.content_view_provider.legacy:
-        class: "%ezpublish_legacy.content_view_provider.class%"
+        class: eZ\Publish\Core\MVC\Legacy\View\Provider\Content
         parent: ezpublish_legacy.view_provider
         tags:
             - {name: ezpublish.view_provider, type: 'Netgen\Bundle\EzPlatformSiteApiBundle\View\ContentView', priority: -205}
 
     netgen.ezplatform_site.location_view_provider.legacy:
-        class: "%ezpublish_legacy.location_view_provider.class%"
+        class: eZ\Publish\Core\MVC\Legacy\View\Provider\Location
         parent: ezpublish_legacy.view_provider
         calls:
             - [setRequestStack, ["@request_stack"]]
