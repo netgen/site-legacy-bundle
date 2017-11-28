@@ -10,10 +10,10 @@
     "require": {
         "netgen/more-bundle": "~4.0.0",
         "ezsystems/legacy-bridge": "^2.0",
-        "netgen/richtext-datatype-bundle": "^1.0",
+        "netgen/richtext-datatype-bundle": "^1.1",
         "ezsystems/eztags-ls": "^2.1",
         "netgen/ngsymfonytools": "^1.1",
-        "netgen/ezplatformsearch": "^1.0",
+        "netgen/ezplatformsearch": "^1.2",
         "netgen/enhancedselection2": "^2.0",
         "netgen/ngclasslist": "^1.0",
         "netgen/birthday": "^1.0",
