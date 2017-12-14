@@ -10,7 +10,7 @@ services:
 
     ngmore_legacy.event_listener.legacy_response:
         class: Netgen\Bundle\MoreLegacyBundle\EventListener\LegacyResponseListener
-        public: true
+        public: false
         arguments:
             - "$legacy_mode$"
         tags:
