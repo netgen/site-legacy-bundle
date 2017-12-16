@@ -2,14 +2,14 @@
 
 namespace Netgen\Bundle\MoreLegacyBundle\Command;
 
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Netgen\Bundle\MoreBundle\NetgenMoreProjectBundleInterface;
+use DirectoryIterator;
 use Netgen\Bundle\MoreBundle\Command\SymlinkCommand;
+use Netgen\Bundle\MoreBundle\NetgenMoreProjectBundleInterface;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use DirectoryIterator;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class SymlinkLegacyCommand extends SymlinkCommand
 {
@@ -69,7 +69,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->forceSymlinks = (bool)$input->getOption('force');
+        $this->forceSymlinks = (bool) $input->getOption('force');
         $this->environment = $this->getContainer()->get('kernel')->getEnvironment();
         $this->fileSystem = $this->getContainer()->get('filesystem');
 
@@ -137,7 +137,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
                 }
 
                 // We want root_* to have priority, so any siteaccess which we already "processed" will be skipped
-                if (!in_array($item->getBasename(), $processedSiteAccesses)) {
+                if (!in_array($item->getBasename(), $processedSiteAccesses, true)) {
                     $this->verifyAndSymlinkDirectory(
                         $item->getPathname(),
                         $legacyRootDir . '/settings/siteaccess/' . $item->getBasename(),
@@ -204,15 +204,15 @@ class SymlinkLegacyCommand extends SymlinkCommand
                     continue;
                 }
 
-                if ($item->isDir() && in_array($item->getBasename(), $this->legacyDistFolders)) {
-                    if (in_array($item->getBasename(), $this->blacklistedItems)) {
+                if ($item->isDir() && in_array($item->getBasename(), $this->legacyDistFolders, true)) {
+                    if (in_array($item->getBasename(), $this->blacklistedItems, true)) {
                         continue;
                     }
 
                     foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($item->getPathname())) as $subItem) {
                         /** @var \SplFileInfo $subItem */
                         if ($subItem->isFile() && !$subItem->isLink()) {
-                            if (in_array($subItem->getBasename(), $this->blacklistedItems)) {
+                            if (in_array($subItem->getBasename(), $this->blacklistedItems, true)) {
                                 continue;
                             }
 
@@ -233,7 +233,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
                             if ($this->fileSystem->exists($filePath) && is_file($filePath) && !is_link($filePath)) {
                                 // If the destination is a real file, we'll just overwrite it, with backup
                                 // but only if it differs from the original
-                                if (md5(file_get_contents($subItem->getPathname())) == md5(file_get_contents($filePath))) {
+                                if (md5(file_get_contents($subItem->getPathname())) === md5(file_get_contents($filePath))) {
                                     continue;
                                 }
 
@@ -249,7 +249,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
                         }
                     }
                 } elseif ($item->isDir() || $item->isFile()) {
-                    if (in_array($item->getBasename(), $this->blacklistedItems)) {
+                    if (in_array($item->getBasename(), $this->blacklistedItems, true)) {
                         continue;
                     }
 

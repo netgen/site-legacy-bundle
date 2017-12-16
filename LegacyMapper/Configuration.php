@@ -2,9 +2,9 @@
 
 namespace Netgen\Bundle\MoreLegacyBundle\LegacyMapper;
 
-use eZ\Publish\Core\MVC\Legacy\LegacyEvents;
-use eZ\Publish\Core\MVC\Legacy\Event\PreBuildKernelEvent;
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
+use eZ\Publish\Core\MVC\Legacy\Event\PreBuildKernelEvent;
+use eZ\Publish\Core\MVC\Legacy\LegacyEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class Configuration implements EventSubscriberInterface
@@ -76,12 +76,12 @@ class Configuration implements EventSubscriberInterface
 
         $event->getParameters()->set(
             'injected-settings',
-            $formattedInjectedSettings + (array)$event->getParameters()->get('injected-settings')
+            $formattedInjectedSettings + (array) $event->getParameters()->get('injected-settings')
         );
 
         $event->getParameters()->set(
             'injected-merge-settings',
-            $formattedInjectedMergeSettings + (array)$event->getParameters()->get('injected-merge-settings')
+            $formattedInjectedMergeSettings + (array) $event->getParameters()->get('injected-merge-settings')
         );
     }
 }

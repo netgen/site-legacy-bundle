@@ -2,8 +2,8 @@
 
 namespace Netgen\Bundle\MoreLegacyBundle\Composer;
 
-use Sensio\Bundle\DistributionBundle\Composer\ScriptHandler as DistributionBundleScriptHandler;
 use Composer\Script\Event;
+use Sensio\Bundle\DistributionBundle\Composer\ScriptHandler as DistributionBundleScriptHandler;
 
 class ScriptHandler extends DistributionBundleScriptHandler
 {

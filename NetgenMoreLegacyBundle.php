@@ -2,9 +2,9 @@
 
 namespace Netgen\Bundle\MoreLegacyBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Netgen\Bundle\MoreLegacyBundle\DependencyInjection\Compiler;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class NetgenMoreLegacyBundle extends Bundle
 {

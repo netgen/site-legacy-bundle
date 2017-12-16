@@ -2,11 +2,11 @@
 
 namespace Netgen\Bundle\MoreLegacyBundle\Templating\Converter;
 
+use Closure;
 use eZ\Publish\API\Repository\Values\User\User;
 use eZ\Publish\Core\MVC\Legacy\Templating\Converter\ObjectConverter;
-use InvalidArgumentException;
-use Closure;
 use eZUser;
+use InvalidArgumentException;
 
 class UserConverter implements ObjectConverter
 {

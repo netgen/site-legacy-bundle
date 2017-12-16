@@ -2,11 +2,11 @@
 
 namespace Netgen\Bundle\MoreLegacyBundle\Core\Slot;
 
-use eZ\Publish\Core\SignalSlot\Signal;
 use eZ\Publish\Core\MVC\Legacy\SignalSlot\AbstractLegacySlot;
+use eZ\Publish\Core\SignalSlot\Signal;
 use eZContentCacheManager;
-use eZContentOperationCollection;
 use eZContentObject;
+use eZContentOperationCollection;
 
 class LegacyCreateUserSlot extends AbstractLegacySlot
 {
