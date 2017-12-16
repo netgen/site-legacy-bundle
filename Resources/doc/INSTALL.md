@@ -4,21 +4,21 @@ Netgen More Legacy Bundle installation instructions
 Requirements
 ------------
 
-* eZ Platform 1.0+
+* eZ Platform 2.0+
 
 Installation steps
 ------------------
 
 ### Use Composer
 
-Add the following to your composer.json and run `php composer.phar update netgen/more-legacy-bundle` to refresh dependencies:
+Add the following to your `composer.json` and run `composer update netgen/more-legacy-bundle` to refresh dependencies:
 
 ```json
 "repositories": [
-    { "type": "composer", "url": "http://packagist.netgen.biz" }
+    { "type": "composer", "url": "https://packagist.netgen.biz" }
 ],
 "require": {
-    "netgen/more-legacy-bundle": "~3.0.0"
+    "netgen/more-legacy-bundle": "~4.0.0"
 }
 ```
 
@@ -31,7 +31,7 @@ public function registerBundles()
 {
    ...
 
-    $bundles[] = new \Netgen\Bundle\MoreLegacyBundle\NetgenMoreLegacyBundle();
+    $bundles[] = new Netgen\Bundle\MoreLegacyBundle\NetgenMoreLegacyBundle();
 
     return $bundles;
 }
@@ -39,8 +39,8 @@ public function registerBundles()
 
 ### Clear the caches
 
-Clear eZ Publish caches.
+Clear eZ Platform caches.
 
 ```bash
-php app/console cache:clear
+php bin/console cache:clear
 ```
