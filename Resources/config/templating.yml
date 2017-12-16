@@ -5,4 +5,4 @@ services:
         arguments:
             - "@ezpublish_legacy.kernel"
         tags:
-            - {name: ezpublish_legacy.templating.converter, for: eZ\Publish\Core\Repository\Values\User\User}
+            - { name: ezpublish_legacy.templating.converter, for: eZ\Publish\Core\Repository\Values\User\User }
