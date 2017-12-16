@@ -4,7 +4,7 @@
     "authors": [
         {
             "name": "Netgen",
-            "homepage": "http://www.netgenlabs.com"
+            "homepage": "https://www.netgenlabs.com"
         }
     ],
     "require": {
@@ -30,7 +30,9 @@
         "netgen/more-admin-ui-bundle": "*"
     },
     "autoload": {
-        "psr-4": { "Netgen\\Bundle\\MoreLegacyBundle\\": "" }
+        "psr-4": {
+            "Netgen\\Bundle\\MoreLegacyBundle\\": ""
+        }
     },
     "extra": {
         "branch-alias": {
