@@ -16,5 +16,6 @@ class NetgenMoreLegacyBundle extends Bundle
     public function build(ContainerBuilder $container)
     {
         $container->addCompilerPass(new Compiler\ConfigurationMapperPass());
+        $container->addCompilerPass(new Compiler\ImageVariationPass());
     }
 }
