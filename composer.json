@@ -19,8 +19,6 @@
         "netgen/birthday": "^1.0",
 
         "netgen/bccie": "^1.0",
-        "netgen/childrenindexer": "^1.0",
-        "netgen/parentindexer": "^1.0",
         "netgen/hideuntildate": "^1.0",
         "netgen/ezclasslists": "^1.2",
         "netgen/ezchangeclass": "^1.0",
