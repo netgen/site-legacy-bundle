@@ -8,14 +8,6 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 
-    ngmore_legacy.event_listener.legacy_response:
-        class: Netgen\Bundle\MoreLegacyBundle\EventListener\LegacyResponseListener
-        public: false
-        arguments:
-            - "$legacy_mode$"
-        tags:
-            - { name: kernel.event_subscriber }
-
     ngmore_legacy.slot.legacy_create_user:
         class: Netgen\Bundle\MoreLegacyBundle\Core\Slot\LegacyCreateUserSlot
         public: false
