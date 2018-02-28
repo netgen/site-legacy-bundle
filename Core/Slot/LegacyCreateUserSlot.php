@@ -12,7 +12,7 @@ use eZContentOperationCollection;
 
 class LegacyCreateUserSlot extends AbstractLegacySlot
 {
-    public function receive(Signal $signal)
+    public function receive(Signal $signal): void
     {
         if (!$signal instanceof Signal\UserService\CreateUserSignal) {
             return;

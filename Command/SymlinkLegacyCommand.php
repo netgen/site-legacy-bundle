@@ -51,14 +51,14 @@ class SymlinkLegacyCommand extends SymlinkCommand
         'settings',
     );
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->addOption('force', null, InputOption::VALUE_NONE, 'If set, it will destroy existing symlinks before recreating them');
         $this->setDescription('Symlinks legacy siteaccesses and various other legacy files to their proper locations');
         $this->setName('ngmore:symlink:legacy');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): ?int
     {
         $this->forceSymlinks = (bool) $input->getOption('force');
         $this->environment = $this->getContainer()->get('kernel')->getEnvironment();
@@ -94,6 +94,8 @@ class SymlinkLegacyCommand extends SymlinkCommand
             $this->symlinkLegacyExtensionOverride($legacyExtension, $output);
             $this->symlinkLegacyExtensionFiles($legacyExtension, $output);
         }
+
+        return 0;
     }
 
     /**

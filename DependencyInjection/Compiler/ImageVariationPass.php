@@ -13,7 +13,7 @@ class ImageVariationPass implements CompilerPassInterface
      * Overrides built in eZ Platform image variation purgers and path generators
      * to use ones specific for legacy.
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $container->setAlias(
             'ezpublish.image_alias.variation_purger',

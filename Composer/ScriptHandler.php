@@ -12,7 +12,7 @@ class ScriptHandler extends DistributionBundleScriptHandler
     /**
      * Symlinks legacy siteaccesses and various other legacy files to their proper locations.
      */
-    public static function installLegacySymlinks(Event $event)
+    public static function installLegacySymlinks(Event $event): void
     {
         $options = static::getOptions($event);
         $consoleDir = static::getConsoleDir($event, 'install legacy symlinks');

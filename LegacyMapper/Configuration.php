@@ -27,7 +27,7 @@ class Configuration implements EventSubscriberInterface
         $this->enabledLegacySettings = $enabledLegacySettings;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return array(
             LegacyEvents::PRE_BUILD_LEGACY_KERNEL => array('onBuildKernel', 64),

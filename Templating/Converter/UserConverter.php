@@ -22,7 +22,7 @@ class UserConverter implements ObjectConverter
         $this->legacyKernel = $legacyKernel;
     }
 
-    public function convert($object)
+    public function convert($object): eZUser
     {
         if (!$object instanceof User) {
             throw new InvalidArgumentException('$object is not a User instance');
