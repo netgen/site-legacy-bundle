@@ -51,9 +51,6 @@ class SymlinkLegacyCommand extends SymlinkCommand
         'settings',
     );
 
-    /**
-     * Configures the command.
-     */
     protected function configure()
     {
         $this->addOption('force', null, InputOption::VALUE_NONE, 'If set, it will destroy existing symlinks before recreating them');
@@ -61,14 +58,6 @@ class SymlinkLegacyCommand extends SymlinkCommand
         $this->setName('ngmore:symlink:legacy');
     }
 
-    /**
-     * Runs the command.
-     *
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return int
-     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->forceSymlinks = (bool) $input->getOption('force');
@@ -109,10 +98,6 @@ class SymlinkLegacyCommand extends SymlinkCommand
 
     /**
      * Symlinks siteccesses from a legacy extension.
-     *
-     * @param string $legacyExtensionPath
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
      */
     protected function symlinkLegacyExtensionSiteAccesses($legacyExtensionPath, InputInterface $input, OutputInterface $output)
     {
@@ -154,10 +139,6 @@ class SymlinkLegacyCommand extends SymlinkCommand
 
     /**
      * Symlinks override folder from a legacy extension.
-     *
-     * @param string $legacyExtensionPath
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
      */
     protected function symlinkLegacyExtensionOverride($legacyExtensionPath, InputInterface $input, OutputInterface $output)
     {
@@ -180,10 +161,6 @@ class SymlinkLegacyCommand extends SymlinkCommand
 
     /**
      * Symlinks files from a legacy extension.
-     *
-     * @param string $legacyExtensionPath
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
      */
     protected function symlinkLegacyExtensionFiles($legacyExtensionPath, InputInterface $input, OutputInterface $output)
     {

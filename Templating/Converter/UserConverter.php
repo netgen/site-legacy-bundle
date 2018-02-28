@@ -17,25 +17,11 @@ class UserConverter implements ObjectConverter
      */
     protected $legacyKernel;
 
-    /**
-     * Constructor.
-     *
-     * @param \Closure $legacyKernel
-     */
     public function __construct(Closure $legacyKernel)
     {
         $this->legacyKernel = $legacyKernel;
     }
 
-    /**
-     * Converts $object to make it compatible with legacy eZTemplate API.
-     *
-     * @param \eZ\Publish\API\Repository\Values\User\User $object
-     *
-     * @throws \InvalidArgumentException If $object is actually not an object
-     *
-     * @return \eZUser
-     */
     public function convert($object)
     {
         if (!$object instanceof User) {

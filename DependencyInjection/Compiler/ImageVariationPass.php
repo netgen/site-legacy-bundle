@@ -12,8 +12,6 @@ class ImageVariationPass implements CompilerPassInterface
     /**
      * Overrides built in eZ Platform image variation purgers and path generators
      * to use ones specific for legacy.
-     *
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
     public function process(ContainerBuilder $container)
     {

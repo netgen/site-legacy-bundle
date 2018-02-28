@@ -27,11 +27,6 @@ class Configuration implements EventSubscriberInterface
         $this->enabledLegacySettings = $enabledLegacySettings;
     }
 
-    /**
-     * Returns an array of event names this subscriber wants to listen to.
-     *
-     * @return array
-     */
     public static function getSubscribedEvents()
     {
         return array(
@@ -41,8 +36,6 @@ class Configuration implements EventSubscriberInterface
 
     /**
      * Adds settings to the parameters that will be injected into the legacy kernel.
-     *
-     * @param \eZ\Publish\Core\MVC\Legacy\Event\PreBuildKernelEvent $event
      */
     public function onBuildKernel(PreBuildKernelEvent $event)
     {
