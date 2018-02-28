@@ -90,16 +90,16 @@ class SymlinkLegacyCommand extends SymlinkCommand
         }
 
         foreach ($legacyExtensions as $legacyExtension) {
-            $this->symlinkLegacyExtensionSiteAccesses($legacyExtension, $input, $output);
-            $this->symlinkLegacyExtensionOverride($legacyExtension, $input, $output);
-            $this->symlinkLegacyExtensionFiles($legacyExtension, $input, $output);
+            $this->symlinkLegacyExtensionSiteAccesses($legacyExtension, $output);
+            $this->symlinkLegacyExtensionOverride($legacyExtension, $output);
+            $this->symlinkLegacyExtensionFiles($legacyExtension, $output);
         }
     }
 
     /**
      * Symlinks siteccesses from a legacy extension.
      */
-    protected function symlinkLegacyExtensionSiteAccesses($legacyExtensionPath, InputInterface $input, OutputInterface $output)
+    protected function symlinkLegacyExtensionSiteAccesses(string $legacyExtensionPath, OutputInterface $output): void
     {
         $legacyRootDir = $this->getContainer()->getParameter('ezpublish_legacy.root_dir');
 
@@ -140,7 +140,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
     /**
      * Symlinks override folder from a legacy extension.
      */
-    protected function symlinkLegacyExtensionOverride($legacyExtensionPath, InputInterface $input, OutputInterface $output)
+    protected function symlinkLegacyExtensionOverride(string $legacyExtensionPath, OutputInterface $output): void
     {
         $legacyRootDir = $this->getContainer()->getParameter('ezpublish_legacy.root_dir');
 
@@ -162,7 +162,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
     /**
      * Symlinks files from a legacy extension.
      */
-    protected function symlinkLegacyExtensionFiles($legacyExtensionPath, InputInterface $input, OutputInterface $output)
+    protected function symlinkLegacyExtensionFiles(string $legacyExtensionPath, OutputInterface $output): void
     {
         /** @var \DirectoryIterator[] $directories */
         $directories = array();

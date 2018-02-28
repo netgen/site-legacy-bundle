@@ -37,7 +37,7 @@ class Configuration implements EventSubscriberInterface
     /**
      * Adds settings to the parameters that will be injected into the legacy kernel.
      */
-    public function onBuildKernel(PreBuildKernelEvent $event)
+    public function onBuildKernel(PreBuildKernelEvent $event): void
     {
         $injectedSettings = $this->configResolver->getParameter('injected_settings', 'netgen_more_legacy');
         $injectedMergeSettings = $this->configResolver->getParameter('injected_merge_settings', 'netgen_more_legacy');
