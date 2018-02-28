@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Netgen\Bundle\MoreLegacyBundle\Core\Slot;
 
 use eZ\Publish\Core\MVC\Legacy\SignalSlot\AbstractLegacySlot;

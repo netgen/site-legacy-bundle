@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Netgen\Bundle\MoreLegacyBundle\Composer;
 
 use Composer\Script\Event;

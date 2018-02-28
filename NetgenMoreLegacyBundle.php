@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Netgen\Bundle\MoreLegacyBundle;
 
 use Netgen\Bundle\MoreLegacyBundle\DependencyInjection\Compiler;
