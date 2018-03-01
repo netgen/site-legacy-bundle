@@ -29,9 +29,9 @@ class Configuration implements EventSubscriberInterface
 
     public static function getSubscribedEvents(): array
     {
-        return array(
-            LegacyEvents::PRE_BUILD_LEGACY_KERNEL => array('onBuildKernel', 64),
-        );
+        return [
+            LegacyEvents::PRE_BUILD_LEGACY_KERNEL => ['onBuildKernel', 64],
+        ];
     }
 
     /**
@@ -42,8 +42,8 @@ class Configuration implements EventSubscriberInterface
         $injectedSettings = $this->configResolver->getParameter('injected_settings', 'netgen_more_legacy');
         $injectedMergeSettings = $this->configResolver->getParameter('injected_merge_settings', 'netgen_more_legacy');
 
-        $formattedInjectedSettings = array();
-        $formattedInjectedMergeSettings = array();
+        $formattedInjectedSettings = [];
+        $formattedInjectedMergeSettings = [];
 
         foreach ($this->enabledLegacySettings as $legacyIniName) {
             if (!empty($injectedSettings[$legacyIniName]) && is_array($injectedSettings[$legacyIniName])) {

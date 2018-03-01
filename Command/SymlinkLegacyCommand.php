@@ -20,7 +20,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
      *
      * @var array
      */
-    protected $legacyDistFolders = array(
+    protected $legacyDistFolders = [
         'autoload',
         'benchmarks',
         'bin',
@@ -38,7 +38,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
         'tests',
         'update',
         'var',
-    );
+    ];
 
     /**
      * Files/directories that will not be symlinked in root and root_* folders.
@@ -47,9 +47,9 @@ class SymlinkLegacyCommand extends SymlinkCommand
      *
      * @var array
      */
-    protected $blacklistedItems = array(
+    protected $blacklistedItems = [
         'settings',
-    );
+    ];
 
     protected function configure(): void
     {
@@ -64,7 +64,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
         $this->environment = $this->getContainer()->get('kernel')->getEnvironment();
         $this->fileSystem = $this->getContainer()->get('filesystem');
 
-        $legacyExtensions = array();
+        $legacyExtensions = [];
 
         $kernel = $this->getContainer()->get('kernel');
         foreach ($kernel->getBundles() as $bundle) {
@@ -106,7 +106,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
         $legacyRootDir = $this->getContainer()->getParameter('ezpublish_legacy.root_dir');
 
         /** @var \DirectoryIterator[] $directories */
-        $directories = array();
+        $directories = [];
 
         $path = $legacyExtensionPath . '/root_' . $this->environment . '/settings/siteaccess/';
         if ($this->fileSystem->exists($path)) {
@@ -118,7 +118,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
             $directories[] = new DirectoryIterator($path);
         }
 
-        $processedSiteAccesses = array();
+        $processedSiteAccesses = [];
         foreach ($directories as $directory) {
             foreach ($directory as $item) {
                 if (!$item->isDir() || $item->isDot()) {
@@ -167,7 +167,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
     protected function symlinkLegacyExtensionFiles(string $legacyExtensionPath, OutputInterface $output): void
     {
         /** @var \DirectoryIterator[] $directories */
-        $directories = array();
+        $directories = [];
 
         $path = $legacyExtensionPath . '/root_' . $this->environment . '/';
         if ($this->fileSystem->exists($path) && is_dir($path)) {

@@ -17,7 +17,7 @@ class Configuration extends SiteAccessConfiguration
         $rootNode
             ->children()
                 ->arrayNode('enabled_legacy_settings')
-                    ->defaultValue(array())
+                    ->defaultValue([])
                     ->prototype('scalar')
                     ->end()
                 ->end()
@@ -25,7 +25,7 @@ class Configuration extends SiteAccessConfiguration
 
         $this->generateScopeBaseNode($rootNode)
             ->arrayNode('injected_settings')
-                ->defaultValue(array())
+                ->defaultValue([])
                 ->prototype('array')
                     ->requiresAtLeastOneElement()
                     ->normalizeKeys(false)
@@ -34,7 +34,7 @@ class Configuration extends SiteAccessConfiguration
                 ->end()
             ->end()
             ->arrayNode('injected_merge_settings')
-                ->defaultValue(array())
+                ->defaultValue([])
                 ->prototype('array')
                     ->requiresAtLeastOneElement()
                     ->normalizeKeys(false)
