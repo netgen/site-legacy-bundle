@@ -26,6 +26,9 @@ class NetgenMoreLegacyExtension extends Extension
 
         $processor = new ConfigurationProcessor($container, 'netgen_more_legacy');
 
+        $container->setParameter('netgen_more_legacy.default.injected_settings', []);
+        $container->setParameter('netgen_more_legacy.default.injected_merge_settings', []);
+
         $processor->mapConfigArray('injected_settings', $config, ContextualizerInterface::MERGE_FROM_SECOND_LEVEL);
         $processor->mapConfigArray('injected_merge_settings', $config, ContextualizerInterface::MERGE_FROM_SECOND_LEVEL);
 
