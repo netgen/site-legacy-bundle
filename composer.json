@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "netgen/more-bundle": "~4.0.0",
+        "netgen/more-bundle": "~4.1.0",
         "ezsystems/legacy-bridge": "^2.0",
         "netgen/richtext-datatype-bundle": "^1.1",
         "ezsystems/eztags-ls": "^2.1",
@@ -34,7 +34,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "4.0.x-dev"
+            "dev-master": "4.1.x-dev"
         }
     }
 }
