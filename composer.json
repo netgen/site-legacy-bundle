@@ -11,18 +11,18 @@
         "netgen/more-bundle": "~4.1.0",
         "ezsystems/legacy-bridge": "^2.0.6",
         "netgen/richtext-datatype-bundle": "^1.1",
-        "ezsystems/eztags-ls": "^2.1",
+        "ezsystems/eztags-ls": "^2.2",
         "netgen/ngsymfonytools": "^1.1",
         "netgen/ezplatformsearch": "^1.2",
         "netgen/enhancedselection2": "^2.0",
-        "netgen/ngclasslist": "^1.0",
-        "netgen/birthday": "^1.0",
+        "netgen/ngclasslist": "^1.1",
+        "netgen/birthday": "^1.1",
 
-        "netgen/bccie": "^1.0",
-        "netgen/hideuntildate": "^1.0",
+        "netgen/bccie": "^1.1",
+        "netgen/hideuntildate": "^1.1",
         "netgen/ezclasslists": "^1.2",
         "netgen/ezchangeclass": "^1.0",
-        "netgen/xrowmetadata": "^2.1"
+        "netgen/xrowmetadata": "^2.3"
     },
     "conflict": {
         "netgen/more-admin-ui-bundle": "*"
