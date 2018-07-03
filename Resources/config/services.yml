@@ -7,10 +7,3 @@ services:
             - "%ngmore_legacy.legacy_mapper.enabled_legacy_settings%"
         tags:
             - { name: kernel.event_subscriber }
-
-    ngmore_legacy.slot.legacy_create_user:
-        class: Netgen\Bundle\MoreLegacyBundle\Core\Slot\LegacyCreateUserSlot
-        public: false
-        parent: ezpublish_legacy.signalslot.base
-        tags:
-            - { name: ezpublish.api.slot, signal: UserService\CreateUserSignal }
