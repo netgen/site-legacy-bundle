@@ -1,9 +1,13 @@
-Netgen More Legacy Bundle
+Netgen Site Legacy Bundle
 =========================
 
-Netgen More Legacy Bundle is an eZ Platform bundle that implements common features that are used throughout Netgen's websites, specific to legacy stack.
+Netgen Site Legacy Bundle is an eZ Platform bundle that implements common features
+that are used by Netgen to implement websites. This bundle acts as a glue between
+new and legacy kernels.
 
-Installation instructions
--------------------------------------
+Installation & license
+----------------------
 
 [Installation instructions](Resources/doc/INSTALL.md)
+
+Licensed under [GPLv2](LICENSE).

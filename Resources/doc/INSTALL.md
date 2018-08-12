@@ -1,4 +1,4 @@
-Netgen More Legacy Bundle installation instructions
+Netgen Site Legacy Bundle installation instructions
 ===================================================
 
 Requirements
@@ -11,31 +11,48 @@ Installation steps
 
 ### Use Composer
 
-Add the following to your `composer.json` and run `composer update netgen/more-legacy-bundle` to refresh dependencies:
+Run the following to install the bundle:
 
-```json
-"repositories": [
-    { "type": "composer", "url": "https://packagist.netgen.biz" }
-],
-"require": {
-    "netgen/more-legacy-bundle": "~4.0.0"
-}
+```bash
+composer require netgen/site-legacy-bundle
 ```
 
 ### Activate the bundle
 
-Activate the bundle in `app/AppKernel.php` file.
+Activate the bundle and all dependencies in `app/AppKernel.php` file.
 
 ```php
 public function registerBundles()
 {
    ...
 
+    $bundles[] = new eZ\Bundle\EzPublishLegacyBundle\EzPublishLegacyBundle($this);
+    $bundles[] = new Netgen\Bundle\RichTextDataTypeBundle\NetgenRichTextDataTypeBundle();
     $bundles[] = new Netgen\Bundle\MoreLegacyBundle\NetgenMoreLegacyBundle();
 
     return $bundles;
 }
 ```
+
+### Activate the legacy extensions
+
+Activate the following legacy extensions:
+
+```ini
+[ExtensionSettings]
+ActiveExtensions[]=ngsymfonytools
+ActiveExtensions[]=ngclasslist
+ActiveExtensions[]=enhancedselection2
+ActiveExtensions[]=ezplatformsearch
+ActiveExtensions[]=eztags
+ActiveExtensions[]=ezrichtext
+ActiveExtensions[]=birthday
+ActiveExtensions[]=hideuntildate
+ActiveExtensions[]=ezclasslists
+ActiveExtensions[]=ezchangeclass
+ActiveExtensions[]=xrowmetadata
+```
+
 
 ### Clear the caches
 

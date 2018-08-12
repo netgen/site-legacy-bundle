@@ -1,6 +1,7 @@
 {
-    "name": "netgen/more-legacy-bundle",
-    "description": "Netgen More Legacy Bundle is an eZ Platform bundle that implements common features that are used throughout Netgen's websites. This specific bundle acts as a glue between new and legacy kernels.",
+    "name": "netgen/site-legacy-bundle",
+    "description": "Netgen Site Legacy Bundle is an eZ Platform bundle that implements common features that are used by Netgen to implement websites. This bundle acts as a glue between new and legacy kernels.",
+    "license": "GPL-2.0-only",
     "authors": [
         {
             "name": "Netgen",
@@ -8,8 +9,8 @@
         }
     ],
     "require": {
-        "netgen/more-bundle": "~4.2.0",
-        "ezsystems/legacy-bridge": "^2.0.6",
+        "netgen/site-bundle": "~1.0.0",
+        "ezsystems/legacy-bridge": "^2.0.8",
         "netgen/richtext-datatype-bundle": "^1.1",
         "ezsystems/eztags-ls": "^2.2",
         "netgen/ngsymfonytools": "^1.1",
@@ -18,13 +19,10 @@
         "netgen/ngclasslist": "^1.1",
         "netgen/birthday": "^1.1",
 
-        "netgen/hideuntildate": "^1.1",
-        "netgen/ezclasslists": "^1.2",
-        "netgen/ezchangeclass": "^1.0",
-        "netgen/xrowmetadata": "^2.3"
-    },
-    "conflict": {
-        "netgen/more-admin-ui-bundle": "*"
+        "netgen/hideuntildate": "^2.0",
+        "netgen/ezclasslists": "^2.0",
+        "netgen/ezchangeclass": "^2.0",
+        "netgen/xrowmetadata": "^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -33,7 +31,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "4.2.x-dev"
+            "dev-master": "1.0.x-dev"
         }
     }
 }
