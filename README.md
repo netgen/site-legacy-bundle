@@ -8,6 +8,6 @@ new and legacy kernels.
 Installation & license
 ----------------------
 
-[Installation instructions](Resources/doc/INSTALL.md)
+[Installation instructions](doc/INSTALL.md)
 
 Licensed under [GPLv2](LICENSE).
