@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\MoreLegacyBundle\Command;
+namespace Netgen\Bundle\SiteLegacyBundle\Command;
 
 use DirectoryIterator;
 use Netgen\Bundle\MoreBundle\Command\SymlinkCommand;
@@ -55,7 +55,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
     {
         $this->addOption('force', null, InputOption::VALUE_NONE, 'If set, it will destroy existing symlinks before recreating them');
         $this->setDescription('Symlinks legacy siteaccesses and various other legacy files to their proper locations');
-        $this->setName('ngmore:symlink:legacy');
+        $this->setName('ngsite:symlink:legacy');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): ?int

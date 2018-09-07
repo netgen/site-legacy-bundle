@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\MoreLegacyBundle\Templating\Converter;
+namespace Netgen\Bundle\SiteLegacyBundle\Templating\Converter;
 
 use Closure;
 use eZ\Publish\API\Repository\Values\User\User;

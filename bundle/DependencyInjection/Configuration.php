@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\MoreLegacyBundle\DependencyInjection;
+namespace Netgen\Bundle\SiteLegacyBundle\DependencyInjection;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration as SiteAccessConfiguration;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -12,16 +12,7 @@ class Configuration extends SiteAccessConfiguration
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('netgen_more_legacy');
-
-        $rootNode
-            ->children()
-                ->arrayNode('enabled_legacy_settings')
-                    ->defaultValue([])
-                    ->prototype('scalar')
-                    ->end()
-                ->end()
-            ->end();
+        $rootNode = $treeBuilder->root('netgen_site_legacy');
 
         $this->generateScopeBaseNode($rootNode)
             ->arrayNode('injected_settings')

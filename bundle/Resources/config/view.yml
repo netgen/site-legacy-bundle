@@ -1,12 +1,12 @@
 services:
-    netgen.ezplatform_site.content_view_provider.legacy:
+    netgen_site_legacy.site_api.content_view_provider:
         class: eZ\Publish\Core\MVC\Legacy\View\Provider\Content
         public: false
         parent: ezpublish_legacy.view_provider
         tags:
             - { name: ezpublish.view_provider, type: 'Netgen\Bundle\EzPlatformSiteApiBundle\View\ContentView', priority: -205 }
 
-    netgen.ezplatform_site.location_view_provider.legacy:
+    netgen_site_legacy.site_api.location_view_provider:
         class: eZ\Publish\Core\MVC\Legacy\View\Provider\Location
         public: false
         parent: ezpublish_legacy.view_provider

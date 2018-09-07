@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Netgen\\Bundle\\MoreLegacyBundle\\": "bundle/"
+            "Netgen\\Bundle\\SiteLegacyBundle\\": "bundle/"
         }
     },
     "extra": {

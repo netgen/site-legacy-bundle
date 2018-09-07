@@ -28,7 +28,7 @@ public function registerBundles()
 
     $bundles[] = new eZ\Bundle\EzPublishLegacyBundle\EzPublishLegacyBundle($this);
     $bundles[] = new Netgen\Bundle\RichTextDataTypeBundle\NetgenRichTextDataTypeBundle();
-    $bundles[] = new Netgen\Bundle\MoreLegacyBundle\NetgenMoreLegacyBundle();
+    $bundles[] = new Netgen\Bundle\SiteLegacyBundle\NetgenSiteLegacyBundle();
 
     return $bundles;
 }

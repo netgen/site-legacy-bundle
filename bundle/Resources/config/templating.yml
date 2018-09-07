@@ -1,6 +1,6 @@
 services:
-    ngmore_legacy.templating.converter.user:
-        class: Netgen\Bundle\MoreLegacyBundle\Templating\Converter\UserConverter
+    netgen_site_legacy.templating.converter.user:
+        class: Netgen\Bundle\SiteLegacyBundle\Templating\Converter\UserConverter
         public: false
         arguments:
             - "@ezpublish_legacy.kernel"

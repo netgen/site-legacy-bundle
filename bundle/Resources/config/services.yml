@@ -1,9 +1,8 @@
 services:
-    ngmore_legacy.legacy_mapper.configuration:
-        class: Netgen\Bundle\MoreLegacyBundle\LegacyMapper\Configuration
+    netgen_site_legacy.legacy_mapper.configuration:
+        class: Netgen\Bundle\SiteLegacyBundle\LegacyMapper\Configuration
         public: false
         arguments:
             - "@ezpublish.config.resolver.core"
-            - "%ngmore_legacy.legacy_mapper.enabled_legacy_settings%"
         tags:
             - { name: kernel.event_subscriber }

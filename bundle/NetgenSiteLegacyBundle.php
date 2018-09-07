@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\MoreLegacyBundle;
+namespace Netgen\Bundle\SiteLegacyBundle;
 
-use Netgen\Bundle\MoreLegacyBundle\DependencyInjection\Compiler;
+use Netgen\Bundle\SiteLegacyBundle\DependencyInjection\Compiler;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class NetgenMoreLegacyBundle extends Bundle
+class NetgenSiteLegacyBundle extends Bundle
 {
     public function build(ContainerBuilder $container): void
     {
