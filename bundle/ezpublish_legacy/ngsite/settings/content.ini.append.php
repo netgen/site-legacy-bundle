@@ -11,18 +11,8 @@ CategoryList[extras]=Extras
 # CUSTOM TAGS
 
 [CustomTagSettings]
-AvailableCustomTags[]=google_maps
 AvailableCustomTags[]=underline
 IsInline[underline]=true
-
-[google_maps]
-CustomAttributes[]
-CustomAttributes[]=latitude
-CustomAttributes[]=longitude
-CustomAttributes[]=container_id
-CustomAttributes[]=zoom
-CustomAttributes[]=map_type
-CustomAttributes[]=map_height
 
 [factbox]
 CustomAttributes[]=align

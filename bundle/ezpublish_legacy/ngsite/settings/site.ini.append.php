@@ -1,5 +1,5 @@
 <?php /* #?ini charset="utf-8"?
 
 [TemplateSettings]
-ExtensionAutoloadPath[]=ngmore
+ExtensionAutoloadPath[]=ngsite
 */ ?>

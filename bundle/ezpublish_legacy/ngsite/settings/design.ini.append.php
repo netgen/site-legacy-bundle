@@ -1,7 +1,7 @@
 <?php /* #?ini charset="utf-8"?
 
 [ExtensionSettings]
-DesignExtensions[]=ngmore
+DesignExtensions[]=ngsite
 
 [StylesheetSettings]
 BackendCSSFileList[]=ng2admin.css
