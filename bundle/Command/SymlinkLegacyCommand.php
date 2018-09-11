@@ -20,7 +20,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
      *
      * @var array
      */
-    protected $legacyDistFolders = [
+    protected static $legacyDistFolders = [
         'autoload',
         'benchmarks',
         'bin',
@@ -47,7 +47,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
      *
      * @var array
      */
-    protected $blacklistedItems = [
+    protected static $blacklistedItems = [
         'settings',
     ];
 
@@ -185,15 +185,15 @@ class SymlinkLegacyCommand extends SymlinkCommand
                     continue;
                 }
 
-                if ($item->isDir() && in_array($item->getBasename(), $this->legacyDistFolders, true)) {
-                    if (in_array($item->getBasename(), $this->blacklistedItems, true)) {
+                if ($item->isDir() && in_array($item->getBasename(), self::$legacyDistFolders, true)) {
+                    if (in_array($item->getBasename(), self::$blacklistedItems, true)) {
                         continue;
                     }
 
                     foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($item->getPathname())) as $subItem) {
                         /** @var \SplFileInfo $subItem */
                         if ($subItem->isFile() && !$subItem->isLink()) {
-                            if (in_array($subItem->getBasename(), $this->blacklistedItems, true)) {
+                            if (in_array($subItem->getBasename(), self::$blacklistedItems, true)) {
                                 continue;
                             }
 
@@ -230,7 +230,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
                         }
                     }
                 } elseif ($item->isDir() || $item->isFile()) {
-                    if (in_array($item->getBasename(), $this->blacklistedItems, true)) {
+                    if (in_array($item->getBasename(), self::$blacklistedItems, true)) {
                         continue;
                     }
 
