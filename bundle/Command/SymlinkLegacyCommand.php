@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Netgen\Bundle\SiteLegacyBundle\Command;
 
 use DirectoryIterator;
-use Netgen\Bundle\MoreBundle\Command\SymlinkCommand;
-use Netgen\Bundle\MoreBundle\NetgenMoreProjectBundleInterface;
+use Netgen\Bundle\SiteBundle\Command\SymlinkCommand;
+use Netgen\Bundle\SiteBundle\NetgenSiteProjectBundleInterface;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use Symfony\Component\Console\Input\InputInterface;
@@ -68,7 +68,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
 
         $kernel = $this->getContainer()->get('kernel');
         foreach ($kernel->getBundles() as $bundle) {
-            if (!$bundle instanceof NetgenMoreProjectBundleInterface) {
+            if (!$bundle instanceof NetgenSiteProjectBundleInterface) {
                 continue;
             }
 
