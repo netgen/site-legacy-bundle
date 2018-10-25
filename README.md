@@ -8,6 +8,8 @@ new and legacy kernels.
 Installation & license
 ----------------------
 
-[Installation instructions](doc/INSTALL.md)
+This package is not intended to be used standalone, but is instead designed to be used as
+a base bundle for Netgen sites based on eZ Platform with Legacy Bridge,
+like [Netgen Media Site](https://github.com/netgen/media-site).
 
 Licensed under [GPLv2](LICENSE).
