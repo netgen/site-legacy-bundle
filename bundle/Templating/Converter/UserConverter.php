@@ -31,7 +31,7 @@ class UserConverter implements ObjectConverter
         $legacyKernel = $this->legacyKernel;
 
         return $legacyKernel()->runCallback(
-            function () use ($object) {
+            static function () use ($object): eZUser {
                 return eZUser::fetchByName($object->login);
             },
             false,
