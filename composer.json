@@ -13,7 +13,7 @@
         "ezsystems/legacy-bridge": "^2.0.8",
         "netgen/richtext-datatype-bundle": "^1.1",
         "ezsystems/eztags-ls": "^2.2",
-        "netgen/ngsymfonytools": "^1.2",
+        "netgen/ngsymfonytools": "^1.3",
         "netgen/ezplatformsearch": "^1.2",
         "netgen/enhancedselection2": "^2.0",
         "netgen/ngclasslist": "^1.1",
