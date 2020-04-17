@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "netgen/site-bundle": "~1.2.0",
+        "netgen/site-bundle": "^1.2",
         "ezsystems/legacy-bridge": "^2.1.0",
         "netgen/richtext-datatype-bundle": "^1.1",
         "ezsystems/eztags-ls": "^2.2.2",
