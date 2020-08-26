@@ -12,6 +12,17 @@ use RecursiveIteratorIterator;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use function date;
+use function file_get_contents;
+use function in_array;
+use function is_dir;
+use function is_file;
+use function is_link;
+use function mb_strpos;
+use function md5;
+use function realpath;
+use function str_replace;
+use function strrev;
 
 class SymlinkLegacyCommand extends SymlinkCommand
 {
