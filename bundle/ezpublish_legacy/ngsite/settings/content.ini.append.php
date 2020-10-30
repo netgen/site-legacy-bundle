@@ -36,6 +36,7 @@ CustomAttributes[]=link_direct_download
 [link]
 CustomAttributes[]=file
 CustomAttributes[]=inline
+CustomAttributes[]=link_suffix
 AvailableClasses[]=download_link
 
 [video]
