@@ -141,7 +141,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
                     $this->verifyAndSymlinkDirectory(
                         $item->getPathname(),
                         $legacyRootDir . '/settings/siteaccess/' . $item->getBasename(),
-                        $output
+                        $output,
                     );
 
                     $processedSiteAccesses[] = $item->getBasename();
@@ -217,7 +217,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
 
                             $filePath = $this->fileSystem->makePathRelative(
                                 realpath($subItem->getPath()),
-                                $directory->getPath()
+                                $directory->getPath(),
                             ) . $fileName;
 
                             $filePath = $this->getContainer()->getParameter('ezpublish_legacy.root_dir') . '/' . $filePath;
@@ -235,7 +235,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
                                 $this->verifyAndSymlinkFile(
                                     $subItem->getPathname(),
                                     $filePath,
-                                    $output
+                                    $output,
                                 );
                             }
                         }
@@ -251,13 +251,13 @@ class SymlinkLegacyCommand extends SymlinkCommand
                         $this->verifyAndSymlinkDirectory(
                             $item->getPathname(),
                             $destination,
-                            $output
+                            $output,
                         );
                     } else {
                         $this->verifyAndSymlinkFile(
                             $item->getPathname(),
                             $destination,
-                            $output
+                            $output,
                         );
                     }
                 }

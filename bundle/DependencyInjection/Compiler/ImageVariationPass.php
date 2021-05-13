@@ -17,12 +17,12 @@ class ImageVariationPass implements CompilerPassInterface
     {
         $container->setAlias(
             'ezpublish.image_alias.variation_purger',
-            'ezpublish.image_alias.variation_purger.legacy_storage_image_file'
+            'ezpublish.image_alias.variation_purger.legacy_storage_image_file',
         );
 
         $container->setAlias(
             'ezpublish.image_alias.variation_path_generator',
-            'ezpublish.image_alias.variation_path_generator.original_directory'
+            'ezpublish.image_alias.variation_path_generator.original_directory',
         );
     }
 }
