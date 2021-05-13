@@ -9,6 +9,7 @@
         }
     ],
     "require": {
+        "php": "^7.4",
         "netgen/site-bundle": "^1.5",
         "ezsystems/legacy-bridge": "^2.1.6",
         "netgen/richtext-datatype-bundle": "^1.1.1",
