@@ -28,10 +28,8 @@ class SymlinkLegacyCommand extends SymlinkCommand
 {
     /**
      * The list of folders available in standard distribution of eZ Publish Legacy.
-     *
-     * @var array
      */
-    protected static $legacyDistFolders = [
+    protected static array $legacyDistFolders = [
         'autoload',
         'benchmarks',
         'bin',
@@ -55,10 +53,8 @@ class SymlinkLegacyCommand extends SymlinkCommand
      * Files/directories that will not be symlinked in root and root_* folders.
      *
      * P.S. "settings" folder has special handling anyways
-     *
-     * @var array
      */
-    protected static $blacklistedItems = [
+    protected static array $blacklistedItems = [
         'settings',
     ];
 

@@ -12,10 +12,7 @@ use InvalidArgumentException;
 
 class UserConverter implements ObjectConverter
 {
-    /**
-     * @var \Closure
-     */
-    protected $legacyKernel;
+    protected Closure $legacyKernel;
 
     public function __construct(Closure $legacyKernel)
     {
