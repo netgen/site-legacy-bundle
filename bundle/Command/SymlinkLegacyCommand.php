@@ -12,6 +12,8 @@ use RecursiveIteratorIterator;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpKernel\KernelInterface;
 use function date;
 use function file_get_contents;
 use function in_array;
@@ -58,23 +60,33 @@ class SymlinkLegacyCommand extends SymlinkCommand
         'settings',
     ];
 
+    protected KernelInterface $kernel;
+
+    protected string $legacyRootDir;
+
+    public function __construct(KernelInterface $kernel, Filesystem $fileSystem, string $legacyRootDir)
+    {
+        $this->kernel = $kernel;
+        $this->fileSystem = $fileSystem;
+        $this->legacyRootDir = $legacyRootDir;
+
+        // Parent constructor call is mandatory for commands registered as services
+        parent::__construct();
+    }
+
     protected function configure(): void
     {
         $this->addOption('force', null, InputOption::VALUE_NONE, 'If set, it will destroy existing symlinks before recreating them');
         $this->setDescription('Symlinks legacy siteaccesses and various other legacy files to their proper locations');
-        $this->setName('ngsite:symlink:legacy');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): ?int
     {
         $this->forceSymlinks = (bool) $input->getOption('force');
-        $this->environment = $this->getContainer()->get('kernel')->getEnvironment();
-        $this->fileSystem = $this->getContainer()->get('filesystem');
 
         $legacyExtensions = [];
 
-        $kernel = $this->getContainer()->get('kernel');
-        foreach ($kernel->getBundles() as $bundle) {
+        foreach ($this->kernel->getBundles() as $bundle) {
             if (!$bundle instanceof NetgenSiteProjectBundleInterface) {
                 continue;
             }
@@ -84,6 +96,20 @@ class SymlinkLegacyCommand extends SymlinkCommand
             }
 
             foreach (new DirectoryIterator($bundle->getPath() . '/ezpublish_legacy/') as $item) {
+                if (!$item->isDir() || $item->isDot()) {
+                    continue;
+                }
+
+                if (!$this->fileSystem->exists($item->getPathname() . '/extension.xml')) {
+                    continue;
+                }
+
+                $legacyExtensions[] = $item->getPathname();
+            }
+        }
+
+        if ($this->fileSystem->exists($this->kernel->getProjectDir() . '/src/ezpublish_legacy/')) {
+            foreach (new DirectoryIterator($this->kernel->getProjectDir() . '/src/ezpublish_legacy/') as $item) {
                 if (!$item->isDir() || $item->isDot()) {
                     continue;
                 }
@@ -110,12 +136,10 @@ class SymlinkLegacyCommand extends SymlinkCommand
      */
     protected function symlinkLegacyExtensionSiteAccesses(string $legacyExtensionPath, OutputInterface $output): void
     {
-        $legacyRootDir = $this->getContainer()->getParameter('ezpublish_legacy.root_dir');
-
         /** @var \DirectoryIterator[] $directories */
         $directories = [];
 
-        $path = $legacyExtensionPath . '/root_' . $this->environment . '/settings/siteaccess/';
+        $path = $legacyExtensionPath . '/root_' . $this->kernel->getEnvironment() . '/settings/siteaccess/';
         if ($this->fileSystem->exists($path)) {
             $directories[] = new DirectoryIterator($path);
         }
@@ -136,7 +160,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
                 if (!in_array($item->getBasename(), $processedSiteAccesses, true)) {
                     $this->verifyAndSymlinkDirectory(
                         $item->getPathname(),
-                        $legacyRootDir . '/settings/siteaccess/' . $item->getBasename(),
+                        $this->legacyRootDir . '/settings/siteaccess/' . $item->getBasename(),
                         $output,
                     );
 
@@ -151,13 +175,11 @@ class SymlinkLegacyCommand extends SymlinkCommand
      */
     protected function symlinkLegacyExtensionOverride(string $legacyExtensionPath, OutputInterface $output): void
     {
-        $legacyRootDir = $this->getContainer()->getParameter('ezpublish_legacy.root_dir');
-
         // If settings/override folder exists in "root_*", obviously we cannot use the one in "root",
         // even if it exists. Thus, we only do fallback to "root/settings/override" if the folder in
         // "root_*" does not exist or is not a directory
 
-        $sourceFolder = $legacyExtensionPath . '/root_' . $this->environment . '/settings/override';
+        $sourceFolder = $legacyExtensionPath . '/root_' . $this->kernel->getEnvironment() . '/settings/override';
         if (!$this->fileSystem->exists($sourceFolder) || !is_dir($sourceFolder)) {
             $sourceFolder = $legacyExtensionPath . '/root/settings/override';
             if (!$this->fileSystem->exists($sourceFolder) || !is_dir($sourceFolder)) {
@@ -165,7 +187,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
             }
         }
 
-        $this->verifyAndSymlinkDirectory($sourceFolder, $legacyRootDir . '/settings/override', $output);
+        $this->verifyAndSymlinkDirectory($sourceFolder, $this->legacyRootDir . '/settings/override', $output);
     }
 
     /**
@@ -176,7 +198,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
         /** @var \DirectoryIterator[] $directories */
         $directories = [];
 
-        $path = $legacyExtensionPath . '/root_' . $this->environment . '/';
+        $path = $legacyExtensionPath . '/root_' . $this->kernel->getEnvironment() . '/';
         if ($this->fileSystem->exists($path) && is_dir($path)) {
             $directories[] = new DirectoryIterator($path);
         }
@@ -216,7 +238,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
                                 $directory->getPath(),
                             ) . $fileName;
 
-                            $filePath = $this->getContainer()->getParameter('ezpublish_legacy.root_dir') . '/' . $filePath;
+                            $filePath = $this->legacyRootDir . '/' . $filePath;
 
                             if ($this->fileSystem->exists($filePath) && is_file($filePath) && !is_link($filePath)) {
                                 // If the destination is a real file, we'll just overwrite it, with backup
@@ -241,7 +263,7 @@ class SymlinkLegacyCommand extends SymlinkCommand
                         continue;
                     }
 
-                    $destination = $this->getContainer()->getParameter('ezpublish_legacy.root_dir') . '/' . $item->getBasename();
+                    $destination = $this->legacyRootDir . '/' . $item->getBasename();
 
                     if ($item->isDir()) {
                         $this->verifyAndSymlinkDirectory(

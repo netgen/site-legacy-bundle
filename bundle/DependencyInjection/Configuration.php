@@ -11,8 +11,8 @@ class Configuration extends SiteAccessConfiguration
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('netgen_site_legacy');
+        $treeBuilder = new TreeBuilder('netgen_site_legacy');
+        $rootNode = $treeBuilder->getRootNode();
 
         $this->generateScopeBaseNode($rootNode)
             ->arrayNode('injected_settings')
