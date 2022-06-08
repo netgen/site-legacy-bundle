@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Netgen\Bundle\SiteLegacyBundle\Templating\Converter;
 
 use Closure;
-use eZ\Publish\API\Repository\Values\User\User;
 use eZ\Publish\Core\MVC\Legacy\Templating\Converter\ObjectConverter;
 use eZUser;
+use Ibexa\Contracts\Core\Repository\Values\User\User;
 use InvalidArgumentException;
 
 class UserConverter implements ObjectConverter

@@ -3,7 +3,7 @@ services:
         class: Netgen\Bundle\SiteLegacyBundle\LegacyMapper\Configuration
         public: false
         arguments:
-            - "@ezpublish.config.resolver"
+            - "@ibexa.config.resolver"
         tags:
             - { name: kernel.event_subscriber }
 
