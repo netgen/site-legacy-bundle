@@ -13,7 +13,7 @@
         "netgen/site-bundle": "^3.0",
         "netgen/ibexa-legacy-bridge": "^4.0",
         "ezsystems/eztags-ls": "^2.2.2",
-        "netgen/ngsymfonytools": "^1.3",
+        "netgen/ngsymfonytools": "^2.0",
         "netgen/ezplatformsearch": "^1.2.3",
         "netgen/enhancedselection2": "^2.1",
         "netgen/ngclasslist": "^1.1",
