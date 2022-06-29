@@ -13,5 +13,6 @@ class NetgenSiteLegacyBundle extends Bundle
     public function build(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new Compiler\ImageVariationPass());
+        $container->addCompilerPass(new Compiler\PublicServicesPass());
     }
 }
