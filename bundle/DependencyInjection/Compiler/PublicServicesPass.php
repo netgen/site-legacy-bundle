@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Netgen\Bundle\SiteLegacyBundle\DependencyInjection\Compiler;
 
+use Ibexa\Contracts\Core\Persistence\Handler;
+use Ibexa\Contracts\Core\Search\VersatileHandler;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -31,6 +33,11 @@ class PublicServicesPass implements CompilerPassInterface
 
         if ($container->has('ibexa.api.repository')) {
             $container->findDefinition('ibexa.api.repository')
+                ->setPublic(true);
+        }
+
+        if ($container->has(Handler::class)) {
+            $container->findDefinition(Handler::class)
                 ->setPublic(true);
         }
     }

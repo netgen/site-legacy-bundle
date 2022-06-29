@@ -15,3 +15,7 @@ services:
             - "%ezpublish_legacy.root_dir%"
         tags:
             - { name: console.command, command: 'ngsite:symlink:legacy' }
+
+    ibexa.spi.search:
+        alias: Ibexa\Contracts\Core\Search\VersatileHandler
+        public: true
