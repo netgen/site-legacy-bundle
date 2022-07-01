@@ -11,6 +11,7 @@
     "require": {
         "php": "^7.4 || ^8.1",
         "netgen/site-bundle": "^3.0",
+        "netgen/metadata-bundle": "^4.0",
         "netgen/ibexa-legacy-bridge": "^4.0",
         "ezsystems/eztags-ls": "^2.2.2",
         "netgen/ngsymfonytools": "^2.0",
