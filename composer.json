@@ -12,7 +12,7 @@
         "php": "^7.4 || ^8.1",
         "netgen/site-bundle": "^3.0",
         "netgen/metadata-bundle": "^4.0",
-        "netgen/ibexa-legacy-bridge": "^4.0",
+        "netgen/ibexa-legacy-bridge": "^3.0",
         "ezsystems/eztags-ls": "^2.2.2",
         "netgen/ngsymfonytools": "^2.0",
         "netgen/ezplatformsearch": "^2.0",
@@ -32,7 +32,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.0.x-dev"
+            "dev-master": "2.0.x-dev"
         }
     }
 }
