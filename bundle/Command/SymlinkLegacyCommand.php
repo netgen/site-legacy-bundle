@@ -29,7 +29,7 @@ use function realpath;
 use function str_replace;
 use function strrev;
 
-class SymlinkLegacyCommand extends SymlinkCommand
+class SymlinkLegacyCommand extends Command
 {
     /**
      * If true, command will destroy existing symlinks before recreating them.
