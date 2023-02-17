@@ -8,6 +8,7 @@ use eZ\Publish\Core\MVC\Legacy\Event\PreBuildKernelEvent;
 use eZ\Publish\Core\MVC\Legacy\LegacyEvents;
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
 use function is_array;
 use function is_string;
 

@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace Netgen\Bundle\SiteLegacyBundle\DependencyInjection\Compiler;
 
 use Ibexa\Contracts\Core\Persistence\Handler;
-use Ibexa\Contracts\Core\Search\VersatileHandler;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Makes the services required by ngsymfonytools legacy extension public
+ * Makes the services required by ngsymfonytools legacy extension public.
  */
 class PublicServicesPass implements CompilerPassInterface
 {
