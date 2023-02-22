@@ -1,0 +1,6 @@
+system:
+    ngadmin_group:
+        field_templates:
+            -
+                template: "@NovaeZSEO/fields/novaseometas_admin.html.twig"
+                priority: 10
