@@ -1,5 +1,9 @@
 <?php /* #?ini charset="utf-8"?
 
+[DataTypeSettings]
+ExtensionDirectories[]=ngsite
+AvailableDataTypes[]=ngenhancedlink
+
 # VARIOUS CONFIG
 
 [ChildrenNodeList]
