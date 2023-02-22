@@ -3,6 +3,7 @@
 [DataTypeSettings]
 ExtensionDirectories[]=ngsite
 AvailableDataTypes[]=ngenhancedlink
+AvailableDataTypes[]=novaseometas
 
 # VARIOUS CONFIG
 
