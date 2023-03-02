@@ -6,3 +6,9 @@ services:
             - "@ezpublish.config.resolver.core"
         tags:
             - { name: kernel.event_subscriber }
+
+    netgen_site_legacy.listener.disable_image_alias_notify:
+        class: Netgen\Bundle\SiteLegacyBundle\EventListener\DisableImageAliasNotifyListener
+        public: false
+        tags:
+            - { name: kernel.event_subscriber }
