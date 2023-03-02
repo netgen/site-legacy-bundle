@@ -16,6 +16,12 @@ services:
         tags:
             - { name: console.command, command: 'ngsite:symlink:legacy' }
 
+    netgen_site_legacy.listener.disable_image_alias_notify:
+        class: Netgen\Bundle\SiteLegacyBundle\EventListener\DisableImageAliasNotifyListener
+        public: false
+        tags:
+            - { name: kernel.event_subscriber }
+
     ibexa.spi.search:
         alias: Ibexa\Contracts\Core\Search\VersatileHandler
         public: true
