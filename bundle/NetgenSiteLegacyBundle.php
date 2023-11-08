@@ -14,5 +14,6 @@ class NetgenSiteLegacyBundle extends Bundle
     {
         $container->addCompilerPass(new Compiler\ImageVariationPass());
         $container->addCompilerPass(new Compiler\PublicServicesPass());
+        $container->addCompilerPass(new Compiler\TwigEnvironmentPass());
     }
 }
