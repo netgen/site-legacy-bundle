@@ -46,9 +46,9 @@ class EmbedToHtml5 extends BaseEmbedToHtml5
 
             if ($contentId) {
                 try {
-                    /** @var \Netgen\EzPlatformSiteApi\API\Values\Content $content */
+                    /** @var \Netgen\IbexaSiteApi\API\Values\Content $content */
                     $content = $this->repository->sudo(
-                        fn (Repository $repository): Content => $this->site->getLoadService()->loadContent($contentId),
+                        fn (Repository $repository): Content => $this->site->getLoadService()->loadContent((int) $contentId),
                     );
 
                     if (
@@ -84,9 +84,9 @@ class EmbedToHtml5 extends BaseEmbedToHtml5
                 }
             } elseif ($locationId) {
                 try {
-                    /** @var \Netgen\EzPlatformSiteApi\API\Values\Location $location */
+                    /** @var \Netgen\IbexaSiteApi\API\Values\Location $location */
                     $location = $this->repository->sudo(
-                        fn (Repository $repository): Location => $this->site->getLoadService()->loadLocation($locationId),
+                        fn (Repository $repository): Location => $this->site->getLoadService()->loadLocation((int) $locationId),
                     );
 
                     if (
